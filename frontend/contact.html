@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact | techworldindia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { background:#05080f; color:#fff; font-family:'Poppins',sans-serif; }
+        .glass-card { background:#0b0f19; border-radius:12px; padding:36px; }
+        input, textarea { background:#1a1f2e!important; border:none!important; color:#fff!important; }
+        input::placeholder, textarea::placeholder { color:#888; }
+        .btn-gradient { background:linear-gradient(45deg,#00c6ff,#0072ff); border:none; }
+        nav a { color:#fff; text-decoration:none; margin:0 12px; }
+        #msg { margin-top:12px; font-weight:600; }
+    </style>
+</head>
+<body>
+<nav class="py-3 px-4" style="background:#0b0f19;">
+    <a href="index.html">🏠 Home</a>
+    <a href="about.html">ℹ️ About</a>
+</nav>
+
+<div class="container mt-5" style="max-width:600px;">
+    <h2 class="mb-4">Contact Us</h2>
+    <div class="glass-card">
+        <div class="mb-3">
+            <label class="form-label">Your Name</label>
+            <input type="text" id="name" class="form-control" placeholder="Full Name">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email Address</label>
+            <input type="email" id="email" class="form-control" placeholder="email@example.com">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea id="message" class="form-control" rows="4" placeholder="Write your message..."></textarea>
+        </div>
+        <button class="btn btn-gradient w-100" onclick="sendMessage()">Send Message</button>
+        <div id="msg"></div>
+    </div>
+</div>
+
+<script>
+const API = "http://localhost:5000/api";
+async function sendMessage() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const msgEl = document.getElementById("msg");
+
+    if (!name || !email || !message) {
+        msgEl.style.color = "#ff4444";
+        msgEl.textContent = "Please fill in all fields.";
+        return;
+    }
+    try {
+        const res = await fetch(`${API}/contact`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, message })
+        });
+        const data = await res.json();
+        msgEl.style.color = "#00c6ff";
+        msgEl.textContent = "✅ " + data.message;
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+    } catch (err) {
+        msgEl.style.color = "#ff4444";
+        msgEl.textContent = "❌ Could not connect to server.";
+    }
+}
+</script>
+</body>
+</html>

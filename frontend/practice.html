@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice Problems | techworldindia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { background:#05080f; color:#fff; font-family:'Poppins',sans-serif; }
+        nav a { color:#fff; text-decoration:none; margin:0 12px; }
+        .prob-card { background:#0b0f19; border-radius:10px; padding:20px; margin-bottom:14px; border-left:4px solid #0072ff; }
+        .badge-easy { background:#16a34a; }
+        .badge-medium { background:#ca8a04; }
+        .badge-hard { background:#dc2626; }
+        .gradient-text { background:linear-gradient(45deg,#00c6ff,#0072ff); -background-clip:text; -webkit-text-fill-color:black; }
+    </style>
+</head>
+<body>
+<nav class="py-3 px-4" style="background:#0b0f19;">
+    <a href="index.html">🏠 Home</a>
+    <a href="test.html">📝 Take Test</a>
+</nav>
+
+<div class="container mt-5">
+    <h2 class="mb-1">💻 <span class="gradient-text">Welcome to Practice Problems</span></h2>
+    <p class="text-secondary mb-4">Sharpen your skills problem by problem</p>
+    <div id="loading" class="text-secondary">Loading problems...</div>
+    <div id="practiceContainer"></div>
+</div>
+
+<script>
+const API = "http://localhost:5000/api";
+async function loadPractice() {
+    try {
+        const res = await fetch(`${API}/practice`);
+        const data = await res.json();
+        document.getElementById("loading").classList.add("d-none");
+        const container = document.getElementById("practiceContainer");
+        data.forEach(item => {
+            const badgeClass = item.difficulty === "Hard" ? "badge-hard" : item.difficulty === "Medium" ? "badge-medium" : "badge-easy";
+            container.innerHTML += `
+                <div class="prob-card">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-1">${item.title}</h5>
+                        <span class="badge ${badgeClass}">${item.difficulty}</span>
+                    </div>
+                    <p class="text-secondary mb-1">${item.description || ""}</p>
+                    <small class="text-muted">Category: ${item.category}</small>
+                </div>`;
+        });
+        if (data.length === 0) container.innerHTML = `<p class="text-secondary">No problems found.</p>`;
+    } catch (err) {
+        document.getElementById("loading").textContent = "⚠️ Could not connect to server.";
+    }
+}
+loadPractice();
+
+</script>
+</body>
+</html>

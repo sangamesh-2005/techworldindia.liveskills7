@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scoreboard | techworldindia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { background:#05080f; color:#fff; font-family:'Poppins',sans-serif; }
+        nav a { color:#fff; text-decoration:none; margin:0 12px; }
+        .gradient-text { background:linear-gradient(45deg,#00c6ff,#0072ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+        table { color:#fff; }
+        thead { background:#0b0f19; }
+        tbody tr { background:#0d1220; border-bottom:1px solid #1a2030; }
+        tbody tr:hover { background:#111827; }
+        .badge-rank { font-size:1rem; padding:4px 10px; border-radius:20px; }
+    </style>
+</head>
+<body>
+<nav class="py-3 px-4" style="background:#0b0f19;">
+    <a href="index.html">🏠 Home</a>
+    <a href="test.html">📝 Take Test</a>
+    <a href="dashboard.html">📊 Dashboard</a>
+</nav>
+
+<div class="container mt-5">
+    <h2 class="mb-1">🏆 <span class="gradient-text">Leaderboard</span></h2>
+    <p class="text-secondary mb-4">Top scores across all test attempts</p>
+    <div id="loading" class="text-secondary">Loading scores...</div>
+    <table class="table table-borderless d-none" id="scoreTable">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Total</th>
+                <th>Percentage</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody id="scoreBody"></tbody>
+    </table>
+</div>
+
+<script>
+const API = "http://localhost:5000/api";
+async function loadScores() {
+    try {
+        const res = await fetch(`${API}/scoreboard`);
+        const data = await res.json();
+        const tbody = document.getElementById("scoreBody");
+        document.getElementById("loading").classList.add("d-none");
+        document.getElementById("scoreTable").classList.remove("d-none");
+        data.forEach((item, i) => {
+            const medals = ["🥇","🥈","🥉"];
+            const date = new Date(item.submitted_at).toLocaleDateString("en-IN");
+            tbody.innerHTML += `
+                <tr>
+                    <td>${medals[i] || (i+1)}</td>
+                    <td>${item.name || item.guest_name || "Guest"}</td>
+                    <td class="text-success fw-bold">${item.score}</td>
+                    <td>${item.total}</td>
+                    <td><span class="badge bg-primary badge-rank">${item.percentage}%</span></td>
+                    <td class="text-secondary">${date}</td>
+                </tr>`;
+        });
+        if (data.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="6" class="text-center text-secondary">No scores yet. Be the first!</td></tr>`;
+        }
+    } catch (err) {
+        document.getElementById("loading").textContent = "⚠️ Could not connect to server.";
+    }
+}
+loadScores();
+</script>
+</body>
+</html>

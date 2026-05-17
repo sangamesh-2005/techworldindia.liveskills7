@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome to Aptitude Test | techworldindia</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+            background:#05080f;
+            color:#fff;
+            font-family:'Poppins',sans-serif;
+        }
+
+        .question-card {
+            background:#0b0f19;
+            border-radius:10px;
+            padding:20px;
+            margin-bottom:16px;
+        }
+
+        .question-card label {
+            display:block;
+            margin:6px 0;
+            cursor:pointer;
+        }
+
+        #timer {
+            color:#00c6ff;
+            font-weight:600;
+        }
+
+        .btn-gradient {
+            background:linear-gradient(45deg,#00c6ff,#0072ff);
+            border:none;
+            color:white;
+        }
+
+        #result {
+            color:#00c6ff;
+            font-size:1.3rem;
+            font-weight:600;
+            margin-top:20px;
+        }
+
+        .wrong-card {
+            background:#1a0e0e;
+            border-left:4px solid #ff4444;
+            border-radius:8px;
+            padding:16px;
+            margin-bottom:12px;
+        }
+
+        nav a {
+            color:#fff;
+            text-decoration:none;
+            margin:0 12px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<nav class="py-3 px-4" style="background:#0b0f19;">
+
+    <a href="index.html">🏠 Home</a>
+
+    <a href="scoreboard.html">🏆 Scoreboard</a>
+
+    <a href="dashboard.html">📊 Dashboard</a>
+
+</nav>
+
+<div class="container mt-4" style="max-width:800px;">
+
+    <h2 class="mb-1">Aptitude Test</h2>
+
+    <p class="text-secondary">30 questions · 30 minutes</p>
+
+    <h4 id="timer">⏱ Time Left: 30:00</h4>
+
+    <div id="questions" class="mt-4"></div>
+
+    <button class="btn btn-gradient px-5 mt-3" onclick="submitTest()">
+        Submit Test
+    </button>
+
+    <div id="result"></div>
+
+    <div id="wrongAnswers" class="mt-4"></div>
+
+</div>
+
+<script>
+
+/* QUESTIONS */
+
+const allQuestions = [
+
+    {
+        question: "What is data structure?",
+        options: [
+            "Way of organizing data",
+            "Programming language",
+            "Operating system",
+            "Database"
+        ],
+        answer: "Way of organizing data"
+    },
+
+    {
+        question: "Which data structure is used for recursion?",
+        options: ["Queue", "Array", "Stack", "Linked List"],
+        answer: "Stack"
+    },
+
+    {
+        question: "Which data structure follows FIFO?",
+        options: ["Stack", "Queue", "Tree", "Graph"],
+        answer: "Queue"
+    },
+
+    {
+        question: "Which data structure follows LIFO?",
+        options: ["Queue", "Array", "Stack", "Graph"],
+        answer: "Stack"
+    },
+
+    {
+        question: "Which algorithm is used in Quick Sort?",
+        options: [
+            "Divide and Conquer",
+            "Greedy",
+            "Dynamic Programming",
+            "Backtracking"
+        ],
+        answer: "Divide and Conquer"
+    },
+
+    {
+        question: "What is the full form of HTML?",
+        options: [
+            "Hyper Text Markup Language",
+            "High Text Machine Language",
+            "Hyper Transfer Markup Language",
+            "Hyper Tool Markup Language"
+        ],
+        answer: "Hyper Text Markup Language"
+    },
+
+    {
+        question: "What is the full form of CSS?",
+        options: [
+            "Cascading Style Sheets",
+            "Creative Style Sheets",
+            "Colorful Style Sheets",
+            "Computer Style Sheets"
+        ],
+        answer: "Cascading Style Sheets"
+    },
+
+    {
+        question: "Which language is used for web development?",
+        options: ["C", "Java", "JavaScript", "Python"],
+        answer: "JavaScript"
+    },
+
+    {
+        question: "Which company developed JavaScript?",
+        options: ["Google", "Microsoft", "Netscape", "Apple"],
+        answer: "Netscape"
+    },
+
+    {
+        question: "Which tag is used for image in HTML?",
+        options: ["img", "image", "src", "pic"],
+        answer: "img"
+    },
+
+    {
+        question: "10 + 20 = ?",
+        options: ["10", "20", "30", "40"],
+        answer: "30"
+    },
+
+    {
+        question: "15 - 5 = ?",
+        options: ["5", "10", "15", "20"],
+        answer: "10"
+    },
+
+    {
+        question: "12 × 2 = ?",
+        options: ["12", "24", "36", "48"],
+        answer: "24"
+    },
+
+    {
+        question: "100 / 5 = ?",
+        options: ["10", "15", "20", "25"],
+        answer: "20"
+    },
+
+    {
+        question: "Which data structure is used in BFS?",
+        options: ["Stack", "Queue", "Tree", "Graph"],
+        answer: "Queue"
+    },
+
+    {
+        question: "Which data structure is used in DFS?",
+        options: ["Queue", "Stack", "Array", "Linked List"],
+        answer: "Stack"
+    },
+
+    {
+        question: "Which tree is balanced automatically?",
+        options: ["Binary Tree", "AVL Tree", "Heap", "Graph"],
+        answer: "AVL Tree"
+    },
+
+    {
+        question: "Which sorting technique is fastest?",
+        options: [
+            "Bubble Sort",
+            "Selection Sort",
+            "Quick Sort",
+            "Insertion Sort"
+        ],
+        answer: "Quick Sort"
+    },
+
+    {
+        question: "Which company owns GitHub?",
+        options: ["Google", "Amazon", "Microsoft", "Meta"],
+        answer: "Microsoft"
+    },
+
+    {
+        question: "Node.js is mainly used for?",
+        options: [
+            "Frontend",
+            "Backend",
+            "Database",
+            "Design"
+        ],
+        answer: "Backend"
+    },
+
+    {
+        question: "MongoDB is a?",
+        options: [
+            "Programming Language",
+            "Database",
+            "Framework",
+            "Browser"
+        ],
+        answer: "Database"
+    },
+
+    {
+        question: "React is a?",
+        options: [
+            "Frontend Library",
+            "Database",
+            "OS",
+            "Browser"
+        ],
+        answer: "Frontend Library"
+    },
+
+    {
+        question: "Which operator is used for multiplication?",
+        options: ["+", "-", "*", "/"],
+        answer: "*"
+    },
+
+    {
+        question: "Which method prints output in console?",
+        options: [
+            "console.log()",
+            "print()",
+            "echo()",
+            "write()"
+        ],
+        answer: "console.log()"
+    },
+
+    {
+        question: "Which keyword declares variable in JavaScript?",
+        options: ["var", "float", "number", "loop"],
+        answer: "var"
+    },
+
+    {
+        question: "Which HTML tag creates heading?",
+        options: ["h1", "p", "div", "span"],
+        answer: "h1"
+    },
+
+    {
+        question: "Which CSS property changes text color?",
+        options: ["font", "background", "color", "style"],
+        answer: "color"
+    },
+
+    {
+        question: "Which command installs packages in Node.js?",
+        options: [
+            "npm install",
+            "node install",
+            "npm start",
+            "install node"
+        ],
+        answer: "npm install"
+    },
+
+    {
+        question: "Which database is NoSQL?",
+        options: [
+            "MongoDB",
+            "MySQL",
+            "Oracle",
+            "PostgreSQL"
+        ],
+        answer: "MongoDB"
+    },
+
+    {
+        question: "Which method converts JSON string to object?",
+        options: [
+            "JSON.parse()",
+            "JSON.stringify()",
+            "parseInt()",
+            "toObject()"
+        ],
+        answer: "JSON.parse()"
+    }
+
+];
+
+/* RANDOM QUESTIONS */
+
+const shuffled = allQuestions.sort(() => 0.5 - Math.random());
+
+const questionsData = shuffled.slice(0, 30);
+
+const container = document.getElementById("questions");
+
+/* LOAD QUESTIONS */
+
+questionsData.forEach((q, i) => {
+
+    container.innerHTML += `
+
+        <div class="question-card">
+
+            <p class="fw-semibold">${i + 1}. ${q.question}</p>
+
+            ${q.options.map(opt => `
+
+                <label>
+
+                    <input type="radio" name="q${i}" value="${opt}">
+
+                    ${opt}
+
+                </label>
+
+            `).join("")}
+
+        </div>
+
+    `;
+});
+
+/* TIMER */
+
+let timerInterval;
+
+let timeLeft = 1800; // 30 Minutes
+
+function startTimer() {
+
+    timerInterval = setInterval(() => {
+
+        timeLeft--;
+
+        const m = Math.floor(timeLeft / 60);
+
+        const s = timeLeft % 60;
+
+        document.getElementById("timer").textContent =
+            `⏱ Time Left: ${m}:${s < 10 ? "0" + s : s}`;
+
+        if (timeLeft <= 0) {
+
+            clearInterval(timerInterval);
+
+            submitTest();
+
+        }
+
+    }, 1000);
+}
+
+/* SUBMIT TEST */
+
+function submitTest() {
+
+    clearInterval(timerInterval);
+
+    let score = 0;
+
+    let wrongHTML = "";
+
+    questionsData.forEach((q, i) => {
+
+        const selected =
+            document.querySelector(`input[name="q${i}"]:checked`);
+
+        if (selected && selected.value === q.answer) {
+
+            score++;
+
+        } else {
+
+            wrongHTML += `
+
+                <div class="wrong-card">
+
+                    <p class="mb-1">
+                        <strong>Q: ${q.question}</strong>
+                    </p>
+
+                    <p class="mb-0 text-success">
+                        ✅ Correct: ${q.answer}
+                    </p>
+
+                    ${
+                        selected
+                        ? `<p class="mb-0 text-danger">
+                            ❌ Your answer: ${selected.value}
+                           </p>`
+                        : `<p class="mb-0 text-warning">
+                            ⚠️ Not attempted
+                           </p>`
+                    }
+
+                </div>
+
+            `;
+        }
+
+    });
+
+    document.getElementById("result").innerHTML = `
+
+        🎯 Your Score:
+        ${score} / ${questionsData.length}
+
+        <br>
+
+        ${
+            Math.round(score / questionsData.length * 100)
+        }%
+
+        <br>
+
+        <small>
+            Thank you for attending! 🚀
+        </small>
+
+    `;
+
+    document.getElementById("wrongAnswers").innerHTML =
+        wrongHTML
+        ? `<h5 class="text-danger mt-3">
+            Review Wrong Answers:
+           </h5>${wrongHTML}`
+        : "";
+
+    document.querySelectorAll("input").forEach(i => {
+
+        i.disabled = true;
+
+    });
+
+    const btn = document.querySelector("button");
+
+    btn.disabled = true;
+
+    btn.textContent = "✅ Test Submitted";
+}
+
+startTimer();
+
+</script>
+
+</body>
+</html>
