@@ -18,22 +18,63 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="test.html">Start Test</a></li>
-                    <li class="nav-item"><a class="nav-link" href="scoreboard.html">Score Board</a></li>
-                    <li class="nav-item"><a class="nav-link" href="practice.html">Practice Problems</a></li>
-                    <li class="nav-item"><a class="nav-link" href="hackathon.html">Hackathons</a></li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-                <div class="d-flex gap-2 nav-auth">
-                    <a href="login.html" class="btn btn-outline-light btn-sm px-4">Login</a>
-                    <a href="signup.html" class="btn btn-gradient btn-sm px-4">Sign Up</a>
-                </div>
-            </div>
+           <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mx-auto">
+
+        <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="requireLogin('Start Test')">
+                Start Test
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="requireLogin('Score Board')">
+                Score Board
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="requireLogin('Practice Problems')">
+                Practice Problems
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="requireLogin('Hackathons')">
+                Hackathons
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="requireLogin('Dashboard')">
+                Dashboard
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+
+    </ul>
+
+    <div class="d-flex gap-2 nav-auth">
+        <a href="login.html" class="btn btn-outline-light btn-sm px-4">
+            Login
+        </a>
+
+        <a href="signup.html" class="btn btn-gradient btn-sm px-4">
+            Sign Up
+        </a>
+    </div>
+</div>
         </div>
     </nav>
 
@@ -204,5 +245,11 @@
     <!-- Custom JS -->
     <script src="js/script.js"></script>
     <script src="app.js"></script>
+    <script>
+    function requireLogin(feature) {
+        alert("Please Login or Sign Up to access " + feature);
+        window.location.href = "login.html";
+    }
+</script>
 </body>
 </html>
