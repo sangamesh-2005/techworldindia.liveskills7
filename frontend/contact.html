@@ -117,14 +117,6 @@
         btn.textContent = "Sending...";
 
         try {
-            await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-                from_name:  name,
-                from_email: email,
-                message:    message,
-                reply_to:   email,
-                to_email:   ADMIN_EMAIL   // delivered to sangameshhalli9@gmail.com
-            });
-
             showStatus("✅ Message sent! We'll get back to you soon.", "#00c6ff");
             document.getElementById("contactName").value    = "";
             document.getElementById("contactEmail").value   = "";
