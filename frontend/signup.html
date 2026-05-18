@@ -97,16 +97,21 @@ body {
                     <form id="signupForm">
                         <div class="mb-3">
                             <label for="name" class="form-label">Full Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="John Doe" required>
+                            <input type="text" id="name" class="form-control" placeholder="Full Name">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email Address</label>
-                            <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                            <input type="email" id="email" class="form-control" placeholder="Email">
                         </div>
                         <div class="mb-4">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+                            <input type="password" id="password" class="form-control" placeholder="Password">
                         </div>
+                        <div class="mb-5">
+                             <label for="Retype password" class="form-label">Retype Password</label>
+                            <input type="Retype password" id="Retype password" class="form-control" placeholder="Retype Password">
+                        </div>
+                            
                         <button class="btn btn-primary w-100" onclick="registerUser(event)">Sign Up</button>
                     </form>
                     <div class="text-center mt-4">
@@ -150,17 +155,21 @@ async function registerUser(event) {
     }
 }
 </script>
-    <script>
+<script>
 document.querySelector("form").addEventListener("submit", function(e) {
     e.preventDefault();
 
+    const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    localStorage.setItem("userEmail", email);
-    localStorage.setItem("userPassword", password);
+    localStorage.setItem("name", name);
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
+    localStorage.setItem("Retype password", Retypepassword);
 
     alert("Signup Successful!");
+
     window.location.href = "login.html";
 });
 </script>
