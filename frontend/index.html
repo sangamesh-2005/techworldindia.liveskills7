@@ -9,76 +9,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="dark-theme">
+
     <nav class="navbar navbar-expand-lg fixed-top glass-nav">
         <div class="container">
             <a class="navbar-brand fw-bold gradient-text" href="index.html">techworldindia<span class="brand-sub">.liveskills2026</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-           <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav mx-auto">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="goToFeature('test.html', 'Start Test')">Start Test</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="goToFeature('scoreboard.html', 'Score Board')">Score Board</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="goToFeature('practice.html', 'Practice Problems')">Practice Problems</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="goToFeature('hackathons.html', 'Hackathons')">Hackathons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="goToFeature('dashboard.html', 'Dashboard')">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
 
-        <li class="nav-item">
-            <a class="nav-link active" href="index.html">Home</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="#" onclick="requireLogin('Start Test')">
-                Start Test
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="#" onclick="requireLogin('Score Board')">
-                Score Board
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="#" onclick="requireLogin('Practice Problems')">
-                Practice Problems
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="#" onclick="requireLogin('Hackathons')">
-                Hackathons
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="#" onclick="requireLogin('Dashboard')">
-                Dashboard
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-
-    </ul>
-
-    <div class="d-flex gap-2 nav-auth">
-        <a href="login.html" class="btn btn-outline-light btn-sm px-4">
-            Login
-        </a>
-
-        <a href="signup.html" class="btn btn-gradient btn-sm px-4">
-            Sign Up
-        </a>
-    </div>
-</div>
+                <!-- Auth buttons: dynamically shown based on login state -->
+                <div class="d-flex gap-2 nav-auth" id="navAuth">
+                    <!-- Filled by JS below -->
+                </div>
+            </div>
         </div>
     </nav>
 
-   <!-- Hero Section -->
+    <!-- Hero Section -->
     <header id="home" class="hero-section d-flex align-items-center">
         <div class="container text-center">
             <div class="reveal-up">
@@ -87,7 +64,7 @@
                 </span>
                 <h1 class="display-2 fw-extrabold mb-3">Build Skills. <span class="gradient-text">Get Jobs.</span></h1>
                 <p class="lead text-secondary-custom mb-5 mx-auto" style="max-width: 700px;">
-                    Practice tests, learn new skills, and find job opportunities in one place. 
+                    Practice tests, learn new skills, and find job opportunities in one place.
                     The premium destination for future-ready engineers.
                 </p>
                 <div class="d-flex justify-content-center gap-3">
@@ -96,13 +73,11 @@
                 </div>
             </div>
         </div>
-        <!-- Abstract Background Shapes -->
         <div class="hero-shape shape-1"></div>
         <div class="hero-shape shape-2"></div>
     </header>
 
-
-   <!-- Features Section -->
+    <!-- Features Section -->
     <section id="features" class="py-100 bg-dark-dots">
         <div class="container">
             <div class="text-center mb-5 reveal-up">
@@ -112,18 +87,14 @@
             <div class="row g-4">
                 <div class="col-md-6 reveal-up">
                     <div class="feature-card glass-card h-100 p-5">
-                        <div class="icon-box mb-4">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
+                        <div class="icon-box mb-4"><i class="fa-solid fa-graduation-cap"></i></div>
                         <h3>Weekly Aptitude Tests</h3>
                         <p class="text-secondary-custom">Regular tests designed by industry experts to track your progress and improve your logical thinking and quantitative skills.</p>
                     </div>
                 </div>
                 <div class="col-md-6 reveal-up">
                     <div class="feature-card glass-card h-100 p-5">
-                        <div class="icon-box mb-4">
-                            <i class="fa-solid fa-briefcase"></i>
-                        </div>
+                        <div class="icon-box mb-4"><i class="fa-solid fa-briefcase"></i></div>
                         <h3>Curated Job Listings</h3>
                         <p class="text-secondary-custom">Handpicked job and internship opportunities specifically for freshers and students from top tech companies across India.</p>
                     </div>
@@ -131,7 +102,8 @@
             </div>
         </div>
     </section>
- <!-- Description Section -->
+
+    <!-- Description Section -->
     <section id="description" class="py-100">
         <div class="container">
             <div class="row align-items-center g-5">
@@ -182,6 +154,7 @@
             </div>
         </div>
     </section>
+
     <!-- Highlight Cards Section -->
     <section class="py-100 highlight-section">
         <div class="container">
@@ -228,28 +201,67 @@
                     <h5 class="fw-bold mb-4">Connect With Developer</h5>
                     <p class="text-secondary-custom mb-4">Developed By sangamesh-halli</p>
                     <div class="d-flex gap-3 footer-social">
-                        <a href="https://github.com/sangamesh-2005/sangamesh-2005" class="social-btn"><i class="fa-brands fa-github"></i></a> 
-                       <a href="https://www.instagram.com/7_future_engineers?igsh=MWo0cGQzdW8zc2Joaw==" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/sangamesh-halli-281521301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/sangamesh-2005/sangamesh-2005" class="social-btn"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.instagram.com/7_future_engineers?igsh=MWo0cGQzdW8zc2Joaw==" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/sangamesh-halli-281521301" class="social-btn"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
             <div class="border-top border-secondary py-4 text-center">
-                <p class="text-secondary-custom mb-0">&copy; 2026 SkillBridge. All rights reserved.</p>
+                <p class="text-secondary-custom mb-0">&copy; 2026 techworldindia. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
     <script src="js/script.js"></script>
-    <script src="app.js"></script>
+
     <script>
-    function requireLogin(feature) {
-        alert("Please Login or Sign Up to access " + feature);
-        window.location.href = "login.html";
-    }
-</script>
+        // ─── Auth Helper ──────────────────────────────────────────────
+        function isLoggedIn() {
+            return localStorage.getItem("loggedIn") === "true";
+        }
+
+        // Navigate to a protected feature page.
+        // If already logged in → go directly. If not → go to login once.
+        function goToFeature(page, featureName) {
+            if (isLoggedIn()) {
+                window.location.href = page;
+            } else {
+                // Store where user wanted to go so login can redirect there
+                localStorage.setItem("redirectAfterLogin", page);
+                window.location.href = "login.html";
+            }
+        }
+
+        function logoutUser() {
+            localStorage.setItem("loggedIn", "false");
+            localStorage.removeItem("redirectAfterLogin");
+            window.location.reload();
+        }
+
+        // ─── Navbar Auth Buttons ──────────────────────────────────────
+        // Renders Login+SignUp when logged out, or user name + Logout when logged in
+        function renderNavAuth() {
+            const navAuth = document.getElementById("navAuth");
+            if (isLoggedIn()) {
+                const name = localStorage.getItem("name") || "Student";
+                navAuth.innerHTML = `
+                    <span class="text-light d-flex align-items-center px-2" style="font-size:14px;">
+                        <i class="fa-solid fa-circle-user me-2" style="color:#60a5fa;"></i>
+                        Hi, ${name}
+                    </span>
+                    <button onclick="logoutUser()" class="btn btn-outline-danger btn-sm px-4">Logout</button>
+                `;
+            } else {
+                navAuth.innerHTML = `
+                    <a href="login.html" class="btn btn-outline-light btn-sm px-4">Login</a>
+                    <a href="signup.html" class="btn btn-gradient btn-sm px-4">Sign Up</a>
+                `;
+            }
+        }
+
+        renderNavAuth();
+    </script>
 </body>
 </html>
