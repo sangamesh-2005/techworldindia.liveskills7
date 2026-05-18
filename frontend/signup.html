@@ -135,8 +135,9 @@ async function registerUser(event) {
     const name = document.getElementById("name").value;
     const email = document.querySelector("input[type='email']").value;
     const password = document.querySelector("input[type='password']").value;
+    const Retypepassword = document.querySelector("input[type='Retype password']").value;
 
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !Retypepassword) {
         alert("Enter all fields");
         return;
     }
@@ -144,7 +145,7 @@ async function registerUser(event) {
     const res = await fetch(`${API}/register`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ name, email, password })
+        body: JSON.stringify({ name, email, password, Retypepassword })
     });
 
     const data = await res.json();
@@ -160,6 +161,7 @@ document.querySelector("form").addEventListener("submit", function(e) {
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
+    const Retypepassword = document.getElementById("Retype password").value;
 
     localStorage.setItem("name", name);
     localStorage.setItem("email", email);
