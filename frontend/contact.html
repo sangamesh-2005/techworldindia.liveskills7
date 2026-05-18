@@ -4,73 +4,221 @@
     <meta charset="UTF-8">
     <title>Contact | techworldindia</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { background:#05080f; color:#fff; font-family:'Poppins',sans-serif; }
-        .glass-card { background:#0b0f19; border-radius:12px; padding:36px; }
-        input, textarea { background:#1a1f2e!important; border:none!important; color:#fff!important; }
-        input::placeholder, textarea::placeholder { color:#888; }
-        .btn-gradient { background:linear-gradient(45deg,#00c6ff,#0072ff); border:none; }
-        nav a { color:#fff; text-decoration:none; margin:0 12px; }
-        #msg { margin-top:12px; font-weight:600; }
+        body { background:#05080f; color:#fff; font-family:'Poppins',sans-serif; min-height:100vh; }
+        nav { background:#0b0f19; padding:14px 24px; display:flex; align-items:center; gap:20px; border-bottom:1px solid #1a1f2e; }
+        nav a { color:#ccc; text-decoration:none; font-size:14px; transition:color 0.2s; }
+        nav a:hover { color:#00c6ff; }
+        .brand { font-weight:700; color:#fff !important; font-size:16px; }
+        .glass-card { background:#0b0f19; border-radius:14px; padding:36px; border:1px solid #1a1f2e; }
+        .form-label { color:#aaa; font-size:13px; margin-bottom:6px; }
+        .form-control {
+            background:#1a1f2e !important;
+            border:1px solid #2a2f3e !important;
+            color:#fff !important;
+            border-radius:8px;
+            padding:12px 14px;
+            font-size:15px;
+        }
+        .form-control::placeholder { color:#555; }
+        .form-control:focus { border-color:#00c6ff !important; box-shadow:0 0 0 2px rgba(0,198,255,0.2) !important; }
+        textarea.form-control { resize:vertical; min-height:120px; }
+        .btn-gradient { background:linear-gradient(45deg,#00c6ff,#0072ff); border:none; font-weight:600; padding:13px; border-radius:8px; color:#fff; font-size:15px; transition:0.3s; }
+        .btn-gradient:hover { opacity:0.9; transform:scale(1.01); color:#fff; }
+        #msg { margin-top:14px; font-size:14px; font-weight:600; text-align:center; }
+
+        /* Inbox Section */
+        .inbox-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
+        .badge-count { background:#00c6ff; color:#000; border-radius:20px; padding:2px 10px; font-size:12px; font-weight:700; }
+        .message-card {
+            background:#111827;
+            border:1px solid #1e293b;
+            border-radius:10px;
+            padding:18px 20px;
+            margin-bottom:14px;
+            transition:border-color 0.2s;
+        }
+        .message-card:hover { border-color:#00c6ff44; }
+        .msg-meta { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-wrap:wrap; gap:6px; }
+        .msg-name { font-weight:600; font-size:15px; color:#fff; }
+        .msg-email { font-size:12px; color:#00c6ff; }
+        .msg-time { font-size:11px; color:#555; }
+        .msg-body { color:#cbd5e1; font-size:14px; line-height:1.6; margin:0; }
+        .btn-delete { background:none; border:1px solid #ff444444; color:#ff6666; border-radius:6px; padding:3px 10px; font-size:12px; cursor:pointer; transition:0.2s; }
+        .btn-delete:hover { background:#ff444422; }
+        .empty-inbox { text-align:center; color:#444; padding:40px 0; font-size:15px; }
+        .divider { border-color:#1a1f2e; margin:40px 0; }
+        .section-title { font-size:18px; font-weight:700; color:#fff; }
+        .admin-toggle { font-size:12px; color:#555; cursor:pointer; user-select:none; margin-top:8px; display:inline-block; }
+        .admin-toggle:hover { color:#00c6ff; }
     </style>
 </head>
 <body>
-<nav class="py-3 px-4" style="background:#0b0f19;">
+
+<nav>
+    <a href="index.html" class="brand">techworldindia<span style="color:#00c6ff;">.liveskills2026</span></a>
     <a href="index.html">🏠 Home</a>
     <a href="about.html">ℹ️ About</a>
 </nav>
 
-<div class="container mt-5" style="max-width:600px;">
-    <h2 class="mb-4">Contact Us</h2>
-    <div class="glass-card">
+<div class="container mt-5 pb-5" style="max-width:640px;">
+
+    <!-- Contact Form -->
+    <h2 class="mb-1 fw-bold">Contact Us</h2>
+    <p style="color:#666; font-size:14px; margin-bottom:28px;">Send us a message — we'll get back to you soon.</p>
+
+    <div class="glass-card mb-4">
         <div class="mb-3">
             <label class="form-label">Your Name</label>
-            <input type="text" id="name" class="form-control" placeholder="Full Name">
+            <input type="text" id="contactName" class="form-control" placeholder="Full Name">
         </div>
         <div class="mb-3">
             <label class="form-label">Email Address</label>
-            <input type="email" id="email" class="form-control" placeholder="email@example.com">
+            <input type="email" id="contactEmail" class="form-control" placeholder="email@example.com">
         </div>
-        <div class="mb-3">
+        <div class="mb-4">
             <label class="form-label">Message</label>
-            <textarea id="message" class="form-control" rows="4" placeholder="Write your message..."></textarea>
+            <textarea id="contactMessage" class="form-control" placeholder="Write your message..."></textarea>
         </div>
         <button class="btn btn-gradient w-100" onclick="sendMessage()">Send Message</button>
         <div id="msg"></div>
     </div>
+
+    <!-- Admin Inbox Toggle -->
+    <hr class="divider">
+    <span class="admin-toggle" onclick="toggleInbox()">🔐 View Received Messages (Admin)</span>
+
+    <div id="inboxSection" style="display:none; margin-top:24px;">
+        <div class="inbox-header">
+            <span class="section-title">📬 Inbox <span class="badge-count" id="msgCount">0</span></span>
+            <button class="btn-delete" onclick="clearAll()" style="font-size:13px; padding:5px 14px;">Clear All</button>
+        </div>
+        <div id="messagesList"></div>
+    </div>
+
 </div>
 
 <script>
-const API = "http://localhost:5000/api";
-async function sendMessage() {
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
-    const msgEl = document.getElementById("msg");
+    // ── Send & Save Message ───────────────────────────────────────────
+    function sendMessage() {
+        const name    = document.getElementById("contactName").value.trim();
+        const email   = document.getElementById("contactEmail").value.trim();
+        const message = document.getElementById("contactMessage").value.trim();
+        const msgEl   = document.getElementById("msg");
 
-    if (!name || !email || !message) {
-        msgEl.style.color = "#ff4444";
-        msgEl.textContent = "Please fill in all fields.";
-        return;
+        if (!name || !email || !message) {
+            showStatus("⚠️ Please fill in all fields.", "#ffaa00");
+            return;
+        }
+
+        // Build message object
+        const newMsg = {
+            id: Date.now(),
+            name,
+            email,
+            message,
+            time: new Date().toLocaleString("en-IN", {
+                day:"2-digit", month:"short", year:"numeric",
+                hour:"2-digit", minute:"2-digit"
+            })
+        };
+
+        // Load existing messages, push new one, save back
+        const messages = getMessages();
+        messages.unshift(newMsg); // newest first
+        localStorage.setItem("contactMessages", JSON.stringify(messages));
+
+        showStatus("✅ Message sent successfully! We'll get back to you soon.", "#00c6ff");
+
+        // Clear form
+        document.getElementById("contactName").value    = "";
+        document.getElementById("contactEmail").value   = "";
+        document.getElementById("contactMessage").value = "";
+
+        // Refresh inbox if open
+        if (document.getElementById("inboxSection").style.display !== "none") {
+            renderInbox();
+        }
     }
-    try {
-        const res = await fetch(`${API}/contact`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, email, message })
-        });
-        const data = await res.json();
-        msgEl.style.color = "#00c6ff";
-        msgEl.textContent = "✅ " + data.message;
-        document.getElementById("name").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("message").value = "";
-    } catch (err) {
-        msgEl.style.color = "#ff4444";
-        msgEl.textContent = "❌ Could not connect to server.";
+
+    function showStatus(text, color) {
+        const el = document.getElementById("msg");
+        el.style.color = color;
+        el.textContent = text;
+        setTimeout(() => { el.textContent = ""; }, 5000);
     }
-}
+
+    // ── localStorage Helpers ──────────────────────────────────────────
+    function getMessages() {
+        try {
+            return JSON.parse(localStorage.getItem("contactMessages")) || [];
+        } catch(e) { return []; }
+    }
+
+    function deleteMessage(id) {
+        const messages = getMessages().filter(m => m.id !== id);
+        localStorage.setItem("contactMessages", JSON.stringify(messages));
+        renderInbox();
+    }
+
+    function clearAll() {
+        if (confirm("Delete all messages?")) {
+            localStorage.removeItem("contactMessages");
+            renderInbox();
+        }
+    }
+
+    // ── Render Inbox ──────────────────────────────────────────────────
+    function renderInbox() {
+        const messages = getMessages();
+        const list     = document.getElementById("messagesList");
+        const count    = document.getElementById("msgCount");
+
+        count.textContent = messages.length;
+
+        if (messages.length === 0) {
+            list.innerHTML = `<div class="empty-inbox">📭 No messages yet.</div>`;
+            return;
+        }
+
+        list.innerHTML = messages.map(m => `
+            <div class="message-card" id="card-${m.id}">
+                <div class="msg-meta">
+                    <div>
+                        <span class="msg-name">${escapeHtml(m.name)}</span>
+                        &nbsp;·&nbsp;
+                        <span class="msg-email">${escapeHtml(m.email)}</span>
+                    </div>
+                    <div style="display:flex;gap:10px;align-items:center;">
+                        <span class="msg-time">${m.time}</span>
+                        <button class="btn-delete" onclick="deleteMessage(${m.id})">🗑 Delete</button>
+                    </div>
+                </div>
+                <p class="msg-body">${escapeHtml(m.message)}</p>
+            </div>
+        `).join("");
+    }
+
+    function toggleInbox() {
+        const section = document.getElementById("inboxSection");
+        if (section.style.display === "none") {
+            section.style.display = "block";
+            renderInbox();
+        } else {
+            section.style.display = "none";
+        }
+    }
+
+    // Prevent XSS
+    function escapeHtml(str) {
+        return String(str)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
+    }
 </script>
+
 </body>
 </html>
