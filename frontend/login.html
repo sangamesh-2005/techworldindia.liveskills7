@@ -66,9 +66,9 @@
     <h3 class="title">techworldindia.liveskills2026</h3>
     <p class="subtitle">Welcome Back</p>
 
-    <input type="email" id="email" class="form-control mb-3" placeholder="Email Address">
+    <input type="email" id="email" class="form-control" placeholder="Email">
 
-    <input type="password" id="password" class="form-control mb-3" placeholder="Password">
+    <input type="password" id="password" class="form-control" placeholder="Password">
     <div class="mb-3">
         <label for="email" class="form-label">Email Address</label>
     </div>
@@ -115,22 +115,27 @@ async function loginUser(event) {
 function goSignup() {
     window.location.href = "signup.html";
 }
-</script>
-<script>
 document.querySelector("form").addEventListener("submit", function(e) {
     e.preventDefault();
 
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    const savedEmail = localStorage.getItem("userEmail");
-    const savedPassword = localStorage.getItem("userPassword");
+    const savedEmail = localStorage.getItem("email");
+    const savedPassword = localStorage.getItem("password");
 
     if(email === savedEmail && password === savedPassword) {
+
+        localStorage.setItem("loggedIn", "true");
+
         alert("Login Successful!");
+
         window.location.href = "dashboard.html";
+
     } else {
+
         alert("Invalid Email or Password");
+
     }
 });
 </script>
