@@ -392,6 +392,36 @@
         <div class="result-msg" id="resultMsg"></div>
     </div>
 </div>
+    <div style="display:flex;gap:10px;margin-top:18px;">
+
+    <button id="prevBtn" onclick="prevQuestion()"
+    style="
+        padding:10px 18px;
+        border:none;
+        border-radius:8px;
+        background:#1e2740;
+        color:white;
+        cursor:pointer;
+        font-weight:600;
+    ">
+        ⬅ Back
+    </button>
+
+    <button id="nextBtn" onclick="nextQuestion()"
+    style="
+        padding:10px 18px;
+        border:none;
+        border-radius:8px;
+        background:linear-gradient(90deg,#0072ff,#00c6ff);
+        color:white;
+        cursor:pointer;
+        font-weight:600;
+        margin-left:auto;
+    ">
+        Next ➜
+    </button>
+
+</div>
 
 <script>
 // ─── ALL QUESTIONS ───────────────────────────────────────────────────────────
@@ -833,9 +863,8 @@ const ALL = [
 // ─── STATE ────────────────────────────────────────────────────────────────────
 // ══════════════════════════════════════════════════════════
 // ADD THESE VARIABLES BELOW:
-// let activeFilter = 'all';
-// let currentQ = null;
-// ══════════════════════════════════════════════════════════
+let activeFilter = 'all';
+let currentQ = null;
 
 let filteredQuestions = [];
 let currentIndex = 0;
@@ -899,43 +928,73 @@ function loadQuestion(index){
 
     if (!item) return;
 
-    currentQ = { item, answered: false };
+    currentQ = {
+        item,
+        answered: false
+    };
 
     document.getElementById('mTitle').textContent = item.q;
 
-    document.getElementById('mBadge').className  =
+    document.getElementById('mBadge').className =
         `badge ${item.diff.toLowerCase()}`;
 
-    document.getElementById('mBadge').textContent = item.diff;
+    document.getElementById('mBadge').textContent =
+        item.diff;
 
-    document.getElementById('mTag').textContent  = item.cat;
+    document.getElementById('mTag').textContent =
+        item.cat;
 
-    document.getElementById('mNum').textContent  =
+    document.getElementById('mNum').textContent =
         `Q${item.id} · ${item.src}`;
 
     const letters = ['A','B','C','D'];
 
     document.getElementById('mOptions').innerHTML =
         item.opts.map((o,i)=>`
-        <div class="option" id="opt${i}" onclick="selectOpt(${i})">
-            <span class="opt-letter">${letters[i]}</span>
-            <span>${o}</span>
-        </div>
-    `).join('');
+            <div class="option" onclick="selectOpt(${i})">
+                <span class="opt-letter">${letters[i]}</span>
+                <span>${o}</span>
+            </div>
+        `).join('');
 
     const rm = document.getElementById('resultMsg');
 
-    rm.style.display='none';
+    rm.style.display = 'none';
 
-    rm.className='result-msg';
+    rm.className = 'result-msg';
 
-    document.getElementById('prevBtn').disabled =
-        currentIndex === 0;
+    const prevBtn = document.getElementById('prevBtn');
 
-    document.getElementById('nextBtn').disabled =
-        currentIndex === filteredQuestions.length - 1;
+    const nextBtn = document.getElementById('nextBtn');
+
+    if(prevBtn){
+        prevBtn.disabled = currentIndex === 0;
+    }
+
+    if(nextBtn){
+        nextBtn.disabled =
+            currentIndex === filteredQuestions.length - 1;
+    }
+}
+function nextQuestion(){
+
+    if(currentIndex < filteredQuestions.length - 1){
+
+        currentIndex++;
+
+        loadQuestion(currentIndex);
+    }
 }
 
+function prevQuestion(){
+
+    if(currentIndex > 0){
+
+        currentIndex--;
+
+        loadQuestion(currentIndex);
+    }
+}
 
 function selectOpt(idx) {
     if (currentQ?.answered) return;
