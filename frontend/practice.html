@@ -425,259 +425,2426 @@
 <script>
 // ─── ALL QUESTIONS ───────────────────────────────────────────────────────────
 const ALL = [
-    /* =========================================================
-   MASSIVE QUESTION GENERATOR (5000+ QUESTIONS)
-========================================================= */
 
-const categories = [
-    "Verbal Ability",
-    "Analytical Ability",
-    "Numerical Ability",
-    "Coding",
-    "Future Engineers"
-];
+// ====================== TCS (1–200Q) ======================
 
-const difficulties = [
-    "Easy",
-    "Medium",
-    "Hard"
-];
+{id:1, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 20% of 250?",
+opts:["25","40","50","60"], ans:2},
 
-const templates = {
+{id:2, company:"TCS", cat:"Logical Reasoning", diff:"Easy",
+q:"Find the next number: 2, 4, 8, 16, ?",
+opts:["24","32","48","64"], ans:1},
 
-    "Verbal Ability":[
-        {
-            q:"Choose the correct synonym of 'Rapid'.",
-            opts:["Slow","Fast","Weak","Silent"],
-            ans:1
-        },
-        {
-            q:"Choose the antonym of 'Ancient'.",
-            opts:["Old","Modern","Historic","Past"],
-            ans:1
-        },
-        {
-            q:"Fill in the blank: She ___ to school everyday.",
-            opts:["go","goes","gone","going"],
-            ans:1
-        }
-    ],
+{id:3, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose synonym of 'Honest'.",
+opts:["Truthful","Lazy","Weak","Cruel"], ans:0},
 
-    "Analytical Ability":[
-        {
-            q:"Find the next number: 2,4,8,16,?",
-            opts:["20","24","32","64"],
-            ans:2
-        },
-        {
-            q:"Which direction is opposite to North?",
-            opts:["East","West","South","North-East"],
-            ans:2
-        },
-        {
-            q:"If CAT = 24, DOG = ?",
-            opts:["26","30","32","28"],
-            ans:1
-        }
-    ],
+{id:4, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If CAT = DBU, then DOG = ?",
+opts:["EPH","EOH","EPG","FPI"], ans:0},
 
-    "Numerical Ability":[
-        {
-            q:"What is 25 × 4 ?",
-            opts:["50","75","100","125"],
-            ans:2
-        },
-        {
-            q:"Solve: 144 ÷ 12",
-            opts:["10","11","12","13"],
-            ans:2
-        },
-        {
-            q:"What is 15% of 200?",
-            opts:["25","30","35","40"],
-            ans:1
-        }
-    ],
+{id:5, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of getting head in coin toss?",
+opts:["0","1/2","1","2"], ans:1},
 
-    "Coding":[
-        {
-            q:"Which keyword declares variable in JavaScript?",
-            opts:["int","define","let","dim"],
-            ans:2
-        },
-        {
-            q:"Which HTML tag creates hyperlink?",
-            opts:["a","link","href","url"],
-            ans:0
-        },
-        {
-            q:"Which data structure uses FIFO?",
-            opts:["Stack","Queue","Tree","Graph"],
-            ans:1
-        }
-    ],
+{id:6, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose grammatically correct sentence.",
+opts:["She do not play.","She does not play.","She does not plays.","She not play."], ans:1},
 
-    "Future Engineers":[
-        {
-            q:"What does AI stand for?",
-            opts:["Artificial Intelligence","Auto Internet","Advanced Interface","None"],
-            ans:0
-        },
-        {
-            q:"Which language is popular for AI?",
-            opts:["Python","HTML","CSS","XML"],
-            ans:0
-        },
-        {
-            q:"What is cloud computing?",
-            opts:[
-                "Internet-based computing",
-                "Rain prediction",
-                "Weather server",
-                "Graphics design"
-            ],
-            ans:0
-        }
-    ]
-};
+{id:7, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Bought for ₹800 and sold for ₹1000. Profit?",
+opts:["₹100","₹150","₹200","₹250"], ans:2},
 
-/* =========================================================
-   GENERATE 5000+ QUESTIONS
-========================================================= */
+{id:8, company:"TCS", cat:"Number Series", diff:"Easy",
+q:"Find next number: 1, 4, 9, 16, ?",
+opts:["20","25","30","36"], ans:1},
 
-const ALL = [];
+{id:9, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If A completes work in 8 days, one day work = ?",
+opts:["1/6","1/8","1/10","1/12"], ans:1},
 
-let idCounter = 1;
+{id:10, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Sales increased from 400 to 500. Percentage increase?",
+opts:["20%","25%","30%","35%"], ans:1},
 
-for(let i=0;i<1200;i++){
+{id:11, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Square root of 169 is?",
+opts:["11","12","13","14"], ans:2},
 
-    categories.forEach(cat=>{
+{id:12, company:"TCS", cat:"Logical Reasoning", diff:"Easy",
+q:"Find odd one out.",
+opts:["Rose","Lily","Lotus","Carrot"], ans:3},
 
-        const arr = templates[cat];
+{id:13, company:"TCS", cat:"Verbal Ability", diff:"Medium",
+q:"Choose antonym of 'Expand'.",
+opts:["Grow","Increase","Shrink","Develop"], ans:2},
 
-        const temp =
-        arr[Math.floor(Math.random()*arr.length)];
+{id:14, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If APPLE = BQQMF, then BALL = ?",
+opts:["CBMM","CBNN","DBMM","CBML"], ans:0},
 
-        ALL.push({
+{id:15, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of getting even number on dice?",
+opts:["1/6","1/3","1/2","2/3"], ans:2},
 
-            id:idCounter++,
+{id:16, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose correct sentence.",
+opts:["They is playing.","They are playing.","They plays.","They playing."], ans:1},
 
-            cat:cat,
+{id:17, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Cost price ₹500, selling price ₹650. Profit percentage?",
+opts:["20%","25%","30%","35%"], ans:2},
 
-            src:
-            cat === "Coding"
-            ? "Coding Round"
-            :
-            cat === "Future Engineers"
-            ? "Future Engineers"
-            :
-            "Reliance Foundation",
+{id:18, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 3, 6, 12, 24, ?",
+opts:["36","48","60","72"], ans:1},
 
-            diff:
-            difficulties[
-                Math.floor(
-                    Math.random()*difficulties.length
-                )
-            ],
+{id:19, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If B completes work in 12 days, one day work = ?",
+opts:["1/10","1/12","1/14","1/16"], ans:1},
 
-            q:temp.q + " #" + idCounter,
+{id:20, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Production increased from 1000 to 1200. Percentage increase?",
+opts:["10%","15%","20%","25%"], ans:2},
 
-            opts:[...temp.opts],
+{id:21, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 35% of 400?",
+opts:["120","140","160","180"], ans:1},
 
-            ans:temp.ans
-        });
+{id:22, company:"TCS", cat:"Logical Reasoning", diff:"Easy",
+q:"Find next number: 5, 10, 20, 40, ?",
+opts:["60","70","80","90"], ans:2},
 
-    });
+{id:23, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose synonym of 'Rapid'.",
+opts:["Slow","Quick","Weak","Lazy"], ans:1},
 
-}
+{id:24, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If PEN = QFO, then BOOK = ?",
+opts:["CPPL","CPPM","DQQL","ERQM"], ans:0},
 
-console.log(
-    "Total Questions Generated:",
-    ALL.length
-);
+{id:25, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of getting odd number on dice?",
+opts:["1/6","1/3","1/2","2/3"], ans:2},
 
-// ══════════════════════════════════════════════════════════
-// RELIANCE FOUNDATION – VERBAL ABILITY (20 Qs)
-// ══════════════════════════════════════════════════════════
-{id:1,  cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
- q:"Fill in the blank with the correct spelling:\nThere should be a ramp in all public places to overcome the ___ to wheelchair access.",
- opts:["hinderance","hindrance","hinderense","hinderanse"], ans:1},
+{id:26, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose grammatically correct sentence.",
+opts:["He go to school.","He goes to school.","He going school.","He gone school."], ans:1},
 
-{id:2,  cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Medium",
- q:"The error, if any, will be in one part of the sentence. Critics everywhere has praised her new novel.",
- opts:["Critics everywhere","has praised","her new novel","No Error"], ans:1},
+{id:27, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Bought for ₹700 and sold for ₹910. Profit?",
+opts:["₹180","₹200","₹210","₹240"], ans:2},
 
-{id:3,  cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
- q:"Fill in the blank with the correct form of verb:\nHe ___ many of his friends to powerful positions within the government.",
- opts:["elevated","elevate","have been elevating","elevating"], ans:0},
+{id:28, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 2, 6, 12, 20, ?",
+opts:["24","28","30","32"], ans:2},
 
-{id:4,  cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
- q:"Fill in the blank with the correct option:\nMy uncle bequeathed his property ___ me.",
- opts:["to","in","for","with"], ans:0},
+{id:29, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If C completes work in 15 days, one day work = ?",
+opts:["1/13","1/15","1/17","1/19"], ans:1},
 
-{id:5,  cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
- q:"Identify the meaning of the underlined word:\nEven in the face of crisis, I appreciate her restrained behaviour.",
- opts:["redundant","proactive","laborious","controlled"], ans:3},
+{id:30, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Revenue increased from ₹5000 to ₹6000. Percentage increase?",
+opts:["10%","15%","20%","25%"], ans:2},
 
-{id:6,  cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Medium",
- q:"Change the sentence from Active to Passive voice:\nI remember my sister taking me to the museum.",
- opts:["I remember I was taken to the museum by my sister.","I remember being taken to the museum by my sister.","I remember myself being taken to the museum by my sister.","I remember taken to the museum by my sister."], ans:1},
+{id:31, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 45% of 200?",
+opts:["70","80","90","100"], ans:2},
 
-{id:7,  cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Medium",
- q:"Sunny ___ sleeping when the house ___ burgled.",
- opts:["Was, had been","Had been, was","Has been, was being","Was, has been"], ans:1},
+{id:32, company:"TCS", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next number: 7, 14, 28, 56, ?",
+opts:["84","96","112","120"], ans:2},
 
-{id:8,  cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Medium",
- q:"Select the closest analogy:\nActor : Theatre",
- opts:["Author : book","Engineer : bridge","Professor : university","Scientist : discovery"], ans:2},
+{id:33, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose synonym of 'Brave'.",
+opts:["Coward","Bold","Weak","Shy"], ans:1},
 
-{id:9,  cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
- q:"Choose the sentence with the correct punctuation:",
- opts:["This book is Mary's favourite book.","this book is Marys' favourite book.","This book, is mary's favourite book","This book is Mary's, favourite book."], ans:0},
+{id:34, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If MANGO = NBOHP, then APPLE = ?",
+opts:["BQQMF","BQQLF","CPPMF","BPPMF"], ans:0},
 
-{id:10, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Medium",
- q:"Choose the correct option to fill the blank:\n___ before the team arrives.",
- opts:["We will have secured the stadium","We would have been securing the stadium","We would have secured the stadium","We will have been securing the stadium"], ans:0},
+{id:35, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of getting number 3 on a dice?",
+opts:["1/2","1/3","1/6","2/3"], ans:2},
 
-{id:11, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
- q:"Choose the correct pronoun for the underlined word:\nThey must have a valid visa for they to travel to the United States of America.",
- opts:["Everyone","Them","Everybody","Each"], ans:1},
+{id:36, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose correct sentence.",
+opts:["I has a car.","I have a car.","I having a car.","I had has car."], ans:1},
 
-{id:12, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
- q:"Use a prefix to form the antonym of the verb MATCH.",
- opts:["PRE","UN","MIS","DIS"], ans:2},
+{id:37, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Cost price ₹900, selling price ₹1080. Profit %?",
+opts:["15%","18%","20%","25%"], ans:2},
 
-{id:13, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
- q:"Laura is usually ___ than her sister Lycee.",
- opts:["Much cheerful","Most cheerful","More cheerful","Cheerful"], ans:2},
+{id:38, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 11, 22, 44, 88, ?",
+opts:["132","154","166","176"], ans:3},
 
-{id:14, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
- q:"What does the abbreviation AKA stand for?",
- opts:["Always Keep Asking","Also Known As","All Known Aspects","All known Adds"], ans:1},
+{id:39, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If D completes work in 20 days, one day work = ?",
+opts:["1/18","1/20","1/22","1/24"], ans:1},
 
-{id:15, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Medium",
- q:"Fill in the blank:\nIt ___ the whole of last week.",
- opts:["Has been snowing","Had snowed","Had been snowing","Has snowed"], ans:2},
+{id:40, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Students increased from 250 to 300. Percentage increase?",
+opts:["15%","20%","25%","30%"], ans:1},
 
-{id:16, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Hard",
- q:"Rearrange the jumbled sentence:\nA) Non-violence is not quality to be evolved  B) Or expressed to order.  C) Upon intense individual effort.  D) It is an inward growth depending for sustenance",
- opts:["ABCD","ACBD","ABDC","CDBA"], ans:2},
+{id:41, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 60% of 500?",
+opts:["200","250","300","350"], ans:2},
 
-{id:17, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
- q:"Identify the meaning of the underlined word:\nThe house is cosy enough.",
- opts:["Big","Comfortable","Beautiful","Neat"], ans:1},
+{id:42, company:"TCS", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next number: 9, 18, 36, 72, ?",
+opts:["108","126","144","162"], ans:2},
 
-{id:18, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
- q:"Identify the correct spelling.",
- opts:["Tomorrow","Tommorrow","Tommorow","Toomorow"], ans:0},
+{id:43, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose antonym of 'Strong'.",
+opts:["Powerful","Weak","Bold","Hard"], ans:1},
 
-{id:19, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
- q:"Which of the following is the antonym of 'Terminate'?",
- opts:["Depart","Prevent","Commence","Hasten"], ans:2},
+{id:44, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If TABLE = UBCMF, then CHAIR = ?",
+opts:["DIBJS","DIBKT","EJCKS","FJDLT"], ans:0},
 
-{id:20, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Medium",
- q:"Read the dialogue and choose the most appropriate option:\nSmitha: Do you want me to drop you at your office today?\nNavin: ___\nSmitha: It's a pleasure.",
- opts:["Don't worry, I'll manage.","I'm not going to office today.","It's raining heavily, How will you drive?","That'd be very helpful."], ans:3},
+{id:45, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of getting tail in coin toss?",
+opts:["0","1/2","1","2"], ans:1},
+
+{id:46, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose correct sentence.",
+opts:["He are good.","He is good.","He am good.","He be good."], ans:1},
+
+{id:47, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Cost price ₹400, selling price ₹500. Profit?",
+opts:["₹80","₹90","₹100","₹120"], ans:2},
+
+{id:48, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 13, 26, 52, 104, ?",
+opts:["156","182","208","224"], ans:2},
+
+{id:49, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If E completes work in 25 days, one day work = ?",
+opts:["1/20","1/22","1/25","1/30"], ans:2},
+
+{id:50, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Income increased from ₹8000 to ₹9600. Percentage increase?",
+opts:["15%","18%","20%","25%"], ans:2},
+
+{id:51, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 75% of 800?",
+opts:["500","550","600","650"], ans:2},
+
+{id:52, company:"TCS", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next number: 4, 12, 36, 108, ?",
+opts:["216","324","432","540"], ans:1},
+
+{id:53, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose synonym of 'Tiny'.",
+opts:["Huge","Small","Tall","Wide"], ans:1},
+
+{id:54, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If BOOK = CPPL, then NOTE = ?",
+opts:["OPUF","OPVG","PQVG","OPTF"], ans:0},
+
+{id:55, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of getting red ball from bag with only red balls?",
+opts:["0","1/4","1/2","1"], ans:3},
+
+{id:56, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose correct sentence.",
+opts:["They was happy.","They are happy.","They is happy.","They am happy."], ans:1},
+
+{id:57, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Bought for ₹1000 and sold for ₹1200. Profit %?",
+opts:["10%","15%","20%","25%"], ans:2},
+
+{id:58, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 6, 12, 24, 48, ?",
+opts:["72","84","96","108"], ans:2},
+
+{id:59, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If F completes work in 30 days, one day work = ?",
+opts:["1/25","1/28","1/30","1/35"], ans:2},
+
+{id:60, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Population increased from 10000 to 12000. Percentage increase?",
+opts:["10%","15%","20%","25%"], ans:2},
+
+{id:61, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 80% of 250?",
+opts:["150","180","200","220"], ans:2},
+
+{id:62, company:"TCS", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next number: 8, 16, 32, 64, ?",
+opts:["96","112","128","144"], ans:2},
+
+{id:63, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose synonym of 'Happy'.",
+opts:["Sad","Joyful","Angry","Weak"], ans:1},
+
+{id:64, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If KING = LJOH, then QUEEN = ?",
+opts:["RVFFO","RVGGO","SVFFO","RVFGO"], ans:0},
+
+{id:65, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of getting number less than 3 on dice?",
+opts:["1/6","1/3","1/2","2/3"], ans:1},
+
+{id:66, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose correct sentence.",
+opts:["We is students.","We are students.","We am students.","We be students."], ans:1},
+
+{id:67, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Cost price ₹1200, selling price ₹1440. Profit %?",
+opts:["15%","18%","20%","25%"], ans:2},
+
+{id:68, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 14, 28, 56, 112, ?",
+opts:["168","196","224","256"], ans:2},
+
+{id:69, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If G completes work in 18 days, one day work = ?",
+opts:["1/16","1/18","1/20","1/22"], ans:1},
+
+{id:70, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Exports increased from 600 to 720. Percentage increase?",
+opts:["10%","15%","20%","25%"], ans:2},
+
+{id:71, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 90% of 300?",
+opts:["240","250","260","270"], ans:3},
+
+{id:72, company:"TCS", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next number: 15, 30, 60, 120, ?",
+opts:["180","210","240","260"], ans:2},
+
+{id:73, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose antonym of 'Victory'.",
+opts:["Success","Defeat","Growth","Pride"], ans:1},
+
+{id:74, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If SCHOOL = TDIPPM, then CLASS = ?",
+opts:["DMBTT","DMBTU","EMCTT","DNCSS"], ans:0},
+
+{id:75, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of getting prime number on dice?",
+opts:["1/6","1/3","1/2","2/3"], ans:2},
+
+{id:76, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose correct sentence.",
+opts:["You was late.","You are late.","You is late.","You am late."], ans:1},
+
+{id:77, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Bought for ₹1500 and sold for ₹1800. Profit?",
+opts:["₹200","₹250","₹300","₹350"], ans:2},
+
+{id:78, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 21, 42, 84, 168, ?",
+opts:["252","294","336","364"], ans:2},
+
+{id:79, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If H completes work in 40 days, one day work = ?",
+opts:["1/35","1/38","1/40","1/42"], ans:2},
+
+{id:80, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Visitors increased from 5000 to 6500. Percentage increase?",
+opts:["20%","25%","30%","35%"], ans:2},
+
+{id:81, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 55% of 400?",
+opts:["180","200","220","240"], ans:2},
+
+{id:82, company:"TCS", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next number: 12, 24, 48, 96, ?",
+opts:["144","168","192","216"], ans:2},
+
+{id:83, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose synonym of 'Ancient'.",
+opts:["Modern","Old","Future","Tiny"], ans:1},
+
+{id:84, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If TRAIN = USBJO, then PLANE = ?",
+opts:["QMBOF","QMBNF","RMBNF","QMBPE"], ans:0},
+
+{id:85, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of getting number greater than 4 on dice?",
+opts:["1/6","1/3","1/2","2/3"], ans:1},
+
+{id:86, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose correct sentence.",
+opts:["The boys is running.","The boys are running.","The boys am running.","The boys runs running."], ans:1},
+
+{id:87, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Cost price ₹2000, selling price ₹2400. Profit %?",
+opts:["10%","15%","20%","25%"], ans:2},
+
+{id:88, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 18, 36, 72, 144, ?",
+opts:["216","252","288","324"], ans:2},
+
+{id:89, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If J completes work in 16 days, one day work = ?",
+opts:["1/14","1/15","1/16","1/18"], ans:2},
+
+{id:90, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Production increased from 900 to 1080. Percentage increase?",
+opts:["10%","15%","20%","25%"], ans:2},
+
+{id:91, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 65% of 200?",
+opts:["110","120","130","140"], ans:2},
+
+{id:92, company:"TCS", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next number: 10, 20, 40, 80, ?",
+opts:["120","140","160","180"], ans:2},
+
+{id:93, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose synonym of 'Calm'.",
+opts:["Peaceful","Angry","Loud","Harsh"], ans:0},
+
+{id:94, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If MOBILE = NPCJMF, then LAPTOP = ?",
+opts:["MBQUPQ","MBRUPQ","MBQUQP","NBQUPQ"], ans:0},
+
+{id:95, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of getting number less than 5 on dice?",
+opts:["1/6","1/3","2/3","5/6"], ans:2},
+
+{id:96, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose correct sentence.",
+opts:["Ram and Ravi is friends.","Ram and Ravi are friends.","Ram and Ravi am friends.","Ram and Ravi be friends."], ans:1},
+
+{id:97, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Bought for ₹2500 and sold for ₹3000. Profit?",
+opts:["₹300","₹400","₹500","₹600"], ans:2},
+
+{id:98, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 16, 32, 64, 128, ?",
+opts:["192","224","256","288"], ans:2},
+
+{id:99, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If K completes work in 24 days, one day work = ?",
+opts:["1/20","1/22","1/24","1/26"], ans:2},
+
+{id:100, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Revenue increased from ₹7000 to ₹8400. Percentage increase?",
+opts:["10%","15%","20%","25%"], ans:2},
+
+{id:101, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 85% of 400?",
+opts:["300","320","340","360"], ans:2},
+
+{id:102, company:"TCS", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next number: 6, 18, 54, 162, ?",
+opts:["324","486","648","972"], ans:1},
+
+{id:103, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose antonym of 'Bright'.",
+opts:["Smart","Dark","Sharp","Quick"], ans:1},
+
+{id:104, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If FRIEND = GSJFOE, then HOUSE = ?",
+opts:["IPVTF","IPUTF","JQVTF","IPVUF"], ans:0},
+
+{id:105, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of getting a king from deck of cards?",
+opts:["1/13","1/26","1/52","4/52"], ans:3},
+
+{id:106, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose correct sentence.",
+opts:["The cat sleep.","The cat sleeps.","The cat sleeping.","The cat slepts."], ans:1},
+
+{id:107, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Cost price ₹3500, selling price ₹4200. Profit %?",
+opts:["15%","18%","20%","25%"], ans:2},
+
+{id:108, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 25, 50, 100, 200, ?",
+opts:["300","350","400","450"], ans:2},
+
+{id:109, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If L completes work in 14 days, one day work = ?",
+opts:["1/12","1/13","1/14","1/15"], ans:2},
+
+{id:110, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Population increased from 15000 to 18000. Percentage increase?",
+opts:["10%","15%","20%","25%"], ans:2},
+
+{id:111, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 95% of 500?",
+opts:["425","450","475","490"], ans:2},
+
+{id:112, company:"TCS", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next number: 20, 40, 80, 160, ?",
+opts:["240","280","320","360"], ans:2},
+
+{id:113, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose synonym of 'Smart'.",
+opts:["Dull","Clever","Weak","Slow"], ans:1},
+
+{id:114, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If WATER = XBUFS, then LIGHT = ?",
+opts:["MJHIU","MJGJU","NKIHU","MJHIY"], ans:0},
+
+{id:115, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of getting black card from deck?",
+opts:["1/4","1/3","1/2","2/3"], ans:2},
+
+{id:116, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose correct sentence.",
+opts:["Birds flies.","Birds fly.","Birds flying.","Birds flys."], ans:1},
+
+{id:117, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Bought for ₹1800 and sold for ₹2250. Profit?",
+opts:["₹350","₹400","₹450","₹500"], ans:2},
+
+{id:118, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 7, 21, 63, 189, ?",
+opts:["378","441","567","729"], ans:2},
+
+{id:119, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If M completes work in 28 days, one day work = ?",
+opts:["1/24","1/26","1/28","1/30"], ans:2},
+
+{id:120, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Factory output increased from 800 to 1000. Percentage increase?",
+opts:["15%","20%","25%","30%"], ans:2},
+
+{id:121, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 70% of 600?",
+opts:["380","400","420","450"], ans:2},
+
+{id:122, company:"TCS", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next number: 24, 48, 96, 192, ?",
+opts:["288","320","384","420"], ans:2},
+
+{id:123, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose antonym of 'Ancient'.",
+opts:["Old","Historic","Modern","Traditional"], ans:2},
+
+{id:124, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If GREEN = HSFFO, then BLACK = ?",
+opts:["CMBDL","CMBDK","CNBDL","DMBEL"], ans:0},
+
+{id:125, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of getting number greater than 2 on dice?",
+opts:["1/6","1/3","2/3","5/6"], ans:2},
+
+{id:126, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose correct sentence.",
+opts:["She were happy.","She is happy.","She are happy.","She am happy."], ans:1},
+
+{id:127, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Cost price ₹1600, selling price ₹1920. Profit %?",
+opts:["15%","18%","20%","22%"], ans:2},
+
+{id:128, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 30, 60, 120, 240, ?",
+opts:["360","420","480","540"], ans:2},
+
+{id:129, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If N completes work in 32 days, one day work = ?",
+opts:["1/28","1/30","1/32","1/34"], ans:2},
+
+{id:130, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Students increased from 1200 to 1500. Percentage increase?",
+opts:["15%","20%","25%","30%"], ans:2},
+
+{id:131, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 40% of 900?",
+opts:["320","340","360","380"], ans:2},
+
+{id:132, company:"TCS", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next number: 5, 15, 45, 135, ?",
+opts:["270","315","405","450"], ans:2},
+
+{id:133, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose synonym of 'Beautiful'.",
+opts:["Ugly","Pretty","Weak","Dirty"], ans:1},
+
+{id:134, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If RIVER = SJWFS, then MOUSE = ?",
+opts:["NPVTF","NPVUG","OQVTF","NPWTF"], ans:0},
+
+{id:135, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of drawing ace from deck?",
+opts:["1/13","1/26","1/52","4/52"], ans:3},
+
+{id:136, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose correct sentence.",
+opts:["The dog bark.","The dog barks.","The dog barking.","The dog barked are."], ans:1},
+
+{id:137, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Bought for ₹2200 and sold for ₹2640. Profit?",
+opts:["₹380","₹400","₹440","₹480"], ans:2},
+
+{id:138, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 17, 34, 68, 136, ?",
+opts:["204","238","272","306"], ans:2},
+
+{id:139, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If P completes work in 36 days, one day work = ?",
+opts:["1/32","1/34","1/36","1/38"], ans:2},
+
+{id:140, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Income increased from ₹20000 to ₹24000. Percentage increase?",
+opts:["15%","18%","20%","25%"], ans:2},
+
+{id:141, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 30% of 700?",
+opts:["180","190","210","240"], ans:2},
+
+{id:142, company:"TCS", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next number: 13, 39, 117, 351, ?",
+opts:["702","1053","1170","1404"], ans:1},
+
+{id:143, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose antonym of 'Rich'.",
+opts:["Poor","Wealthy","Strong","Great"], ans:0},
+
+{id:144, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If PHONE = QIPOF, then SMART = ?",
+opts:["TNBSU","TNARU","TOBSU","SNBSU"], ans:0},
+
+{id:145, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of getting face card from deck?",
+opts:["3/13","1/4","1/2","2/3"], ans:0},
+
+{id:146, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose correct sentence.",
+opts:["Children likes toys.","Children like toys.","Children liking toys.","Children is toys."], ans:1},
+
+{id:147, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Cost price ₹2600, selling price ₹3120. Profit %?",
+opts:["15%","18%","20%","25%"], ans:2},
+
+{id:148, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 19, 38, 76, 152, ?",
+opts:["228","266","304","342"], ans:2},
+
+{id:149, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If Q completes work in 45 days, one day work = ?",
+opts:["1/40","1/42","1/45","1/48"], ans:2},
+
+{id:150, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Company growth from ₹50000 to ₹60000. Percentage increase?",
+opts:["10%","15%","20%","25%"], ans:2},
+
+{id:151, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 15% of 800?",
+opts:["100","110","120","130"], ans:2},
+
+{id:152, company:"TCS", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next number: 14, 42, 126, 378, ?",
+opts:["756","1024","1134","1512"], ans:2},
+
+{id:153, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose synonym of 'Clean'.",
+opts:["Dirty","Pure","Weak","Dark"], ans:1},
+
+{id:154, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If SWEET = TXFFU, then SUGAR = ?",
+opts:["TVHBS","TVHBR","UVHBS","TVICS"], ans:0},
+
+{id:155, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of getting spade from deck?",
+opts:["1/2","1/3","1/4","1/13"], ans:2},
+
+{id:156, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose correct sentence.",
+opts:["My friend have book.","My friend has a book.","My friend having book.","My friend book has."], ans:1},
+
+{id:157, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Bought for ₹3000 and sold for ₹3600. Profit?",
+opts:["₹500","₹550","₹600","₹650"], ans:2},
+
+{id:158, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 23, 46, 92, 184, ?",
+opts:["276","322","368","414"], ans:2},
+
+{id:159, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If R completes work in 50 days, one day work = ?",
+opts:["1/45","1/48","1/50","1/52"], ans:2},
+
+{id:160, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Visitors increased from 2000 to 2600. Percentage increase?",
+opts:["20%","25%","30%","35%"], ans:2},
+
+    {id:161, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 50% of 950?",
+opts:["425","450","475","500"], ans:2},
+
+{id:162, company:"TCS", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next number: 27, 54, 108, 216, ?",
+opts:["324","378","432","486"], ans:2},
+
+{id:163, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose antonym of 'Victory'.",
+opts:["Defeat","Success","Growth","Pride"], ans:0},
+
+{id:164, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If PAPER = QBQFS, then MONEY = ?",
+opts:["NPOFZ","NQOFZ","NPOEZ","NQNFZ"], ans:0},
+
+{id:165, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of getting number 5 on dice?",
+opts:["1/2","1/3","1/6","2/3"], ans:2},
+
+{id:166, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose correct sentence.",
+opts:["The sun rise east.","The sun rises in the east.","The sun rising east.","The sun rise in east."], ans:1},
+
+{id:167, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Cost price ₹2800, selling price ₹3360. Profit %?",
+opts:["15%","18%","20%","22%"], ans:2},
+
+{id:168, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 26, 52, 104, 208, ?",
+opts:["312","364","416","468"], ans:2},
+
+{id:169, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If S completes work in 60 days, one day work = ?",
+opts:["1/55","1/58","1/60","1/62"], ans:2},
+
+{id:170, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Revenue increased from ₹12000 to ₹14400. Percentage increase?",
+opts:["10%","15%","20%","25%"], ans:2},
+
+{id:171, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 25% of 960?",
+opts:["220","230","240","250"], ans:2},
+
+{id:172, company:"TCS", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next number: 32, 64, 128, 256, ?",
+opts:["384","448","512","640"], ans:2},
+
+{id:173, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose synonym of 'Strong'.",
+opts:["Weak","Powerful","Tiny","Soft"], ans:1},
+
+{id:174, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If BREAD = CSFBE, then FRUIT = ?",
+opts:["GSVJU","GSVIT","HSVJU","GTVJU"], ans:0},
+
+{id:175, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of getting queen from deck?",
+opts:["1/13","1/26","1/52","4/52"], ans:3},
+
+{id:176, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose correct sentence.",
+opts:["He don't know.","He doesn't know.","He not know.","He didn't knows."], ans:1},
+
+{id:177, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Bought for ₹4200 and sold for ₹5040. Profit?",
+opts:["₹700","₹760","₹840","₹900"], ans:2},
+
+{id:178, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 29, 58, 116, 232, ?",
+opts:["348","406","464","522"], ans:2},
+
+{id:179, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If T completes work in 70 days, one day work = ?",
+opts:["1/65","1/68","1/70","1/72"], ans:2},
+
+{id:180, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Factory output increased from 3000 to 3600. Percentage increase?",
+opts:["10%","15%","20%","25%"], ans:2},
+
+{id:181, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 35% of 1000?",
+opts:["250","300","350","400"], ans:2},
+
+{id:182, company:"TCS", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next number: 11, 33, 99, 297, ?",
+opts:["594","792","891","1089"], ans:2},
+
+{id:183, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose antonym of 'Cold'.",
+opts:["Cool","Warm","Freeze","Ice"], ans:1},
+
+{id:184, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If TABLE = UBCMF, then CHALK = ?",
+opts:["DIBML","DIBLK","EIBML","DJCML"], ans:0},
+
+{id:185, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of getting black king from deck?",
+opts:["1/26","1/52","2/52","1/13"], ans:2},
+
+{id:186, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose correct sentence.",
+opts:["They has arrived.","They have arrived.","They arriving.","They arrived has."], ans:1},
+
+{id:187, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Cost price ₹5000, selling price ₹6000. Profit %?",
+opts:["10%","15%","20%","25%"], ans:2},
+
+{id:188, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 31, 62, 124, 248, ?",
+opts:["372","434","496","558"], ans:2},
+
+{id:189, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If U completes work in 80 days, one day work = ?",
+opts:["1/75","1/78","1/80","1/82"], ans:2},
+
+{id:190, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Production increased from 4500 to 5400. Percentage increase?",
+opts:["10%","15%","20%","25%"], ans:2},
+
+{id:191, company:"TCS", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 45% of 1200?",
+opts:["480","500","540","560"], ans:2},
+
+{id:192, company:"TCS", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next number: 36, 72, 144, 288, ?",
+opts:["432","504","576","648"], ans:2},
+
+{id:193, company:"TCS", cat:"Verbal Ability", diff:"Easy",
+q:"Choose synonym of 'Rich'.",
+opts:["Poor","Wealthy","Weak","Tiny"], ans:1},
+
+{id:194, company:"TCS", cat:"Coding-Decoding", diff:"Medium",
+q:"If MARKET = NBSLFU, then GARDEN = ?",
+opts:["HBSEFO","HBSDFO","IBSEFO","HBTEFO"], ans:0},
+
+{id:195, company:"TCS", cat:"Probability", diff:"Easy",
+q:"Probability of drawing red card from deck?",
+opts:["1/4","1/3","1/2","2/3"], ans:2},
+
+{id:196, company:"TCS", cat:"Grammar", diff:"Easy",
+q:"Choose correct sentence.",
+opts:["The baby cry.","The baby cries.","The baby crying.","The baby criess."], ans:1},
+
+{id:197, company:"TCS", cat:"Profit and Loss", diff:"Medium",
+q:"Bought for ₹6400 and sold for ₹7680. Profit?",
+opts:["₹1000","₹1100","₹1200","₹1280"], ans:3},
+
+{id:198, company:"TCS", cat:"Number Series", diff:"Medium",
+q:"Find next number: 34, 68, 136, 272, ?",
+opts:["408","476","544","612"], ans:2},
+
+{id:199, company:"TCS", cat:"Time and Work", diff:"Medium",
+q:"If V completes work in 90 days, one day work = ?",
+opts:["1/85","1/88","1/90","1/92"], ans:2},
+
+{id:200, company:"TCS", cat:"Data Interpretation", diff:"Medium",
+q:"Sales increased from ₹25000 to ₹30000. Percentage increase?",
+opts:["10%","15%","20%","25%"], ans:2},
+
+    // ====================== INFOSYS (1–200) ======================
+
+const infosysQuestions = [
+
+{id:1, company:"Infosys", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 20% of 250?",
+opts:["40","45","50","60"], ans:2},
+
+{id:2, company:"Infosys", cat:"Logical Reasoning", diff:"Easy",
+q:"Find the odd one out.",
+opts:["Apple","Banana","Carrot","Mango"], ans:2},
+
+{id:3, company:"Infosys", cat:"Verbal Ability", diff:"Easy",
+q:"Choose the correct synonym of 'Rapid'.",
+opts:["Slow","Fast","Weak","Soft"], ans:1},
+
+{id:4, company:"Infosys", cat:"Quantitative Aptitude", diff:"Easy",
+q:"If x + 5 = 12, find x.",
+opts:["5","6","7","8"], ans:2},
+
+{id:5, company:"Infosys", cat:"Logical Reasoning", diff:"Easy",
+q:"Complete the series: 2, 4, 6, 8, ?",
+opts:["10","11","12","14"], ans:0},
+
+{id:6, company:"Infosys", cat:"Verbal Ability", diff:"Easy",
+q:"Choose the antonym of 'Ancient'.",
+opts:["Old","Modern","Historic","Antique"], ans:1},
+
+{id:7, company:"Infosys", cat:"Quantitative Aptitude", diff:"Easy",
+q:"A train travels 60 km in 1 hour. What is its speed?",
+opts:["50 kmph","60 kmph","70 kmph","80 kmph"], ans:1},
+
+{id:8, company:"Infosys", cat:"Logical Reasoning", diff:"Easy",
+q:"Dog is to Puppy as Cat is to ?",
+opts:["Cub","Kitten","Calf","Kid"], ans:1},
+
+{id:9, company:"Infosys", cat:"Verbal Ability", diff:"Easy",
+q:"Choose the correctly spelled word.",
+opts:["Enviroment","Environment","Envirnoment","Enviornment"], ans:1},
+
+{id:10, company:"Infosys", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Find 25% of 800.",
+opts:["100","150","200","250"], ans:2},
+
+{id:11, company:"Infosys", cat:"Logical Reasoning", diff:"Easy",
+q:"Find the missing number: 3, 6, 9, ?, 15",
+opts:["10","11","12","13"], ans:2},
+
+{id:12, company:"Infosys", cat:"Verbal Ability", diff:"Easy",
+q:"Choose the synonym of 'Brave'.",
+opts:["Coward","Bold","Weak","Soft"], ans:1},
+
+{id:13, company:"Infosys", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is the square of 12?",
+opts:["124","132","144","154"], ans:2},
+
+{id:14, company:"Infosys", cat:"Logical Reasoning", diff:"Easy",
+q:"Which number comes next? 5, 10, 15, 20, ?",
+opts:["22","24","25","30"], ans:2},
+
+{id:15, company:"Infosys", cat:"Verbal Ability", diff:"Easy",
+q:"Choose the antonym of 'Happy'.",
+opts:["Joyful","Sad","Excited","Cheerful"], ans:1},
+
+{id:16, company:"Infosys", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 15 + 27?",
+opts:["40","41","42","43"], ans:2},
+
+{id:17, company:"Infosys", cat:"Logical Reasoning", diff:"Easy",
+q:"Bird is to Fly as Fish is to ?",
+opts:["Walk","Swim","Jump","Run"], ans:1},
+
+{id:18, company:"Infosys", cat:"Verbal Ability", diff:"Easy",
+q:"Choose the correctly spelled word.",
+opts:["Recieve","Receive","Receeve","Receve"], ans:1},
+
+{id:19, company:"Infosys", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Find the cube of 3.",
+opts:["9","18","27","36"], ans:2},
+
+{id:20, company:"Infosys", cat:"Logical Reasoning", diff:"Easy",
+q:"Complete the pattern: A, C, E, G, ?",
+opts:["H","I","J","K"], ans:1},
+
+{id:21, company:"Infosys", cat:"Verbal Ability", diff:"Easy",
+q:"Choose the synonym of 'Tiny'.",
+opts:["Huge","Small","Long","Wide"], ans:1},
+
+{id:22, company:"Infosys", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 100 ÷ 4?",
+opts:["20","25","30","40"], ans:1},
+
+{id:23, company:"Infosys", cat:"Logical Reasoning", diff:"Easy",
+q:"Find the odd one out.",
+opts:["Rose","Lily","Lotus","Car"], ans:3},
+
+{id:24, company:"Infosys", cat:"Verbal Ability", diff:"Easy",
+q:"Choose the antonym of 'Strong'.",
+opts:["Powerful","Weak","Healthy","Hard"], ans:1},
+
+{id:25, company:"Infosys", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 18 × 2?",
+opts:["34","35","36","38"], ans:2},
+
+{id:26, company:"Infosys", cat:"Logical Reasoning", diff:"Easy",
+q:"Which comes next? 1, 4, 9, 16, ?",
+opts:["20","25","30","36"], ans:1},
+
+{id:27, company:"Infosys", cat:"Verbal Ability", diff:"Easy",
+q:"Choose the correctly spelled word.",
+opts:["Definately","Definitely","Definetly","Defanitely"], ans:1},
+
+{id:28, company:"Infosys", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Find 10% of 500.",
+opts:["25","40","50","60"], ans:2},
+
+{id:29, company:"Infosys", cat:"Logical Reasoning", diff:"Easy",
+q:"Pen is to Write as Knife is to ?",
+opts:["Cut","Cook","Eat","Draw"], ans:0},
+
+{id:30, company:"Infosys", cat:"Verbal Ability", diff:"Easy",
+q:"Choose the synonym of 'Intelligent'.",
+opts:["Smart","Lazy","Weak","Poor"], ans:0},
+
+{id:31, company:"Infosys", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 7 × 8?",
+opts:["54","56","58","64"], ans:1},
+
+{id:32, company:"Infosys", cat:"Logical Reasoning", diff:"Easy",
+q:"Find the missing number: 2, 5, 8, 11, ?",
+opts:["12","13","14","15"], ans:2},
+
+{id:33, company:"Infosys", cat:"Verbal Ability", diff:"Easy",
+q:"Choose the antonym of 'Early'.",
+opts:["Late","Soon","Fast","Prompt"], ans:0},
+
+{id:34, company:"Infosys", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Find the average of 10 and 20.",
+opts:["10","15","20","25"], ans:1},
+
+{id:35, company:"Infosys", cat:"Logical Reasoning", diff:"Easy",
+q:"Complete the series: 1, 2, 4, 8, ?",
+opts:["10","12","14","16"], ans:3},
+
+{id:36, company:"Infosys", cat:"Verbal Ability", diff:"Easy",
+q:"Choose the synonym of 'Honest'.",
+opts:["Truthful","False","Cruel","Lazy"], ans:0},
+
+{id:37, company:"Infosys", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 81 ÷ 9?",
+opts:["7","8","9","10"], ans:2},
+
+{id:38, company:"Infosys", cat:"Logical Reasoning", diff:"Easy",
+q:"Find the odd one out.",
+opts:["Tiger","Lion","Elephant","Car"], ans:3},
+
+{id:39, company:"Infosys", cat:"Verbal Ability", diff:"Easy",
+q:"Choose the correctly spelled word.",
+opts:["Occasion","Ocassion","Occassion","Occaasion"], ans:0},
+
+{id:40, company:"Infosys", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Find 50% of 90.",
+opts:["40","45","50","55"], ans:1},
+
+{id:41, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Which number comes next? 2, 6, 12, 20, ?",
+opts:["28","30","32","36"], ans:1},
+
+{id:42, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Choose the antonym of 'Expand'.",
+opts:["Grow","Increase","Shrink","Stretch"], ans:2},
+
+{id:43, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"If the cost price is ₹400 and selling price is ₹500, find profit percentage.",
+opts:["20%","25%","30%","35%"], ans:1},
+
+{id:44, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"If CAT = 24, DOG = ?",
+opts:["26","27","28","29"], ans:0},
+
+{id:45, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Choose the synonym of 'Abundant'.",
+opts:["Scarce","Plenty","Little","Tiny"], ans:1},
+
+{id:46, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"Find simple interest on ₹1000 at 10% for 2 years.",
+opts:["100","150","200","250"], ans:2},
+
+{id:47, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Pointing to a woman, Raj said, 'She is the daughter of my grandfather’s only son.' Who is she to Raj?",
+opts:["Sister","Mother","Cousin","Niece"], ans:0},
+
+{id:48, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Choose the correctly spelled word.",
+opts:["Accomodation","Accommodation","Acommodation","Acomodation"], ans:1},
+
+{id:49, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"A train running at 72 kmph crosses a pole in 10 sec. Find train length.",
+opts:["150 m","180 m","200 m","220 m"], ans:2},
+
+{id:50, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Find the missing number: 1, 1, 2, 3, 5, 8, ?",
+opts:["11","12","13","14"], ans:2},
+
+// ====================== INFOSYS (51–200) ======================
+
+{id:51, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"If 5x = 45, find x.",
+opts:["7","8","9","10"], ans:2},
+
+{id:52, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Find the next number: 3, 7, 15, 31, ?",
+opts:["47","55","63","60"], ans:2},
+
+{id:53, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Choose synonym of 'Rapidly'.",
+opts:["Slowly","Quickly","Softly","Badly"], ans:1},
+
+{id:54, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"A number increased by 20% becomes 120. Find original number.",
+opts:["90","95","100","110"], ans:2},
+
+{id:55, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Which is different? 121, 144, 169, 190",
+opts:["121","144","169","190"], ans:3},
+
+{id:56, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Choose antonym of 'Artificial'.",
+opts:["Fake","Natural","False","Manmade"], ans:1},
+
+{id:57, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"Find compound interest on 1000 at 10% for 1 year.",
+opts:["90","100","110","120"], ans:1},
+
+{id:58, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"If A=1, B=2, what is Z?",
+opts:["24","25","26","27"], ans:2},
+
+{id:59, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Choose correct spelling.",
+opts:["Seperate","Separate","Seprate","Seperatee"], ans:1},
+
+{id:60, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"What is 12% of 250?",
+opts:["25","30","35","40"], ans:1},
+
+{id:61, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Find missing: 10, 20, 30, ?, 50",
+opts:["35","40","45","48"], ans:1},
+
+{id:62, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Antonym of 'Generous'.",
+opts:["Kind","Selfish","Rich","Good"], ans:1},
+
+{id:63, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"If ratio is 2:3 and sum is 25, find larger number.",
+opts:["10","15","18","20"], ans:1},
+
+{id:64, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Find odd: 2, 4, 8, 16, 31",
+opts:["2","4","8","31"], ans:3},
+
+{id:65, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Synonym of 'Beautiful'.",
+opts:["Ugly","Pretty","Weak","Hard"], ans:1},
+
+{id:66, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"Square root of 144.",
+opts:["10","11","12","13"], ans:2},
+
+{id:67, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"If Monday is coded as 123, what is Tuesday?",
+opts:["234567","234568","345678","123456"], ans:1},
+
+{id:68, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Choose correct antonym of 'Brilliant'.",
+opts:["Smart","Dull","Bright","Sharp"], ans:1},
+
+{id:69, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"Speed = Distance/Time. If distance=150km, time=3hr, speed?",
+opts:["40","45","50","55"], ans:2},
+
+{id:70, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Complete series: 1, 4, 9, 16, 25, ?",
+opts:["30","32","36","40"], ans:2},
+
+{id:71, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Synonym of 'Rapid'.",
+opts:["Fast","Slow","Weak","Late"], ans:0},
+
+{id:72, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"If 3x + 5 = 20, find x.",
+opts:["3","4","5","6"], ans:1},
+
+{id:73, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Find missing: 100, 90, 80, ?, 60",
+opts:["70","75","65","68"], ans:0},
+
+{id:74, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Antonym of 'Increase'.",
+opts:["Grow","Rise","Decrease","Expand"], ans:2},
+
+{id:75, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"What is 15 squared?",
+opts:["225","215","235","245"], ans:0},
+
+{id:76, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"If pen is coded as qfo, what is book?",
+opts:["cppk","cqqk","cplk","cppq"], ans:0},
+
+{id:77, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Choose correct spelling.",
+opts:["Commitee","Committee","Comitte","Comittee"], ans:1},
+
+{id:78, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"Find LCM of 4 and 6.",
+opts:["10","12","14","16"], ans:1},
+
+{id:79, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Odd one out: 11, 13, 17, 21",
+opts:["11","13","17","21"], ans:3},
+
+{id:80, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Synonym of 'Huge'.",
+opts:["Big","Small","Tiny","Weak"], ans:0},
+
+{id:81, company:"Infosys", cat:"Quantitative Aptitude", diff:"Hard",
+q:"Pipe fills tank in 6 hrs, leak empties in 12 hrs. Net time?",
+opts:["8 hr","10 hr","12 hr","6 hr"], ans:1},
+
+{id:82, company:"Infosys", cat:"Logical Reasoning", diff:"Hard",
+q:"Find next: 1, 3, 6, 10, 15, ?",
+opts:["18","20","21","22"], ans:2},
+
+{id:83, company:"Infosys", cat:"Verbal Ability", diff:"Hard",
+q:"Choose synonym of 'Complex'.",
+opts:["Simple","Difficult","Easy","Soft"], ans:1},
+
+{id:84, company:"Infosys", cat:"Quantitative Aptitude", diff:"Hard",
+q:"A shop gives 10% discount on 500. Final price?",
+opts:["450","460","470","480"], ans:0},
+
+{id:85, company:"Infosys", cat:"Logical Reasoning", diff:"Hard",
+q:"If 2=5, 3=10, 4=17, then 5=?",
+opts:["24","26","28","30"], ans:1},
+
+{id:86, company:"Infosys", cat:"Verbal Ability", diff:"Hard",
+q:"Antonym of 'Optimistic'.",
+opts:["Hopeful","Pessimistic","Happy","Good"], ans:1},
+
+{id:87, company:"Infosys", cat:"Quantitative Aptitude", diff:"Hard",
+q:"Average of 5 numbers is 20. Sum?",
+opts:["80","90","100","110"], ans:2},
+
+{id:88, company:"Infosys", cat:"Logical Reasoning", diff:"Hard",
+q:"Find missing letter: A, D, G, J, ?",
+opts:["K","L","M","N"], ans:2},
+
+{id:89, company:"Infosys", cat:"Verbal Ability", diff:"Hard",
+q:"Synonym of 'Difficult'.",
+opts:["Hard","Easy","Soft","Light"], ans:0},
+
+{id:90, company:"Infosys", cat:"Quantitative Aptitude", diff:"Hard",
+q:"CI on 2000 at 5% for 2 years?",
+opts:["200","205","210","215"], ans:2},
+
+{id:91, company:"Infosys", cat:"Logical Reasoning", diff:"Hard",
+q:"If SKY = 123, SEA = ?",
+opts:["456","415","514","154"], ans:1},
+
+{id:92, company:"Infosys", cat:"Verbal Ability", diff:"Hard",
+q:"Choose correct antonym of 'Scarce'.",
+opts:["Rare","Plenty","Less","Few"], ans:1},
+
+{id:93, company:"Infosys", cat:"Quantitative Aptitude", diff:"Hard",
+q:"Find value of 25 × 16.",
+opts:["350","375","400","425"], ans:2},
+
+{id:94, company:"Infosys", cat:"Logical Reasoning", diff:"Hard",
+q:"Find odd: Square, Circle, Triangle, Cube",
+opts:["Square","Circle","Triangle","Cube"], ans:3},
+
+{id:95, company:"Infosys", cat:"Verbal Ability", diff:"Hard",
+q:"Synonym of 'Abandon'.",
+opts:["Leave","Stay","Hold","Keep"], ans:0},
+
+{id:96, company:"Infosys", cat:"Quantitative Aptitude", diff:"Hard",
+q:"If 20% of x = 50, x = ?",
+opts:["200","250","300","150"], ans:1},
+
+{id:97, company:"Infosys", cat:"Logical Reasoning", diff:"Hard",
+q:"Series: 2, 12, 30, 56, ?",
+opts:["90","110","132","150"], ans:2},
+
+{id:98, company:"Infosys", cat:"Verbal Ability", diff:"Hard",
+q:"Antonym of 'Flexible'.",
+opts:["Rigid","Soft","Loose","Weak"], ans:0},
+
+{id:99, company:"Infosys", cat:"Quantitative Aptitude", diff:"Hard",
+q:"If x² = 81, x = ?",
+opts:["7","8","9","10"], ans:2},
+
+{id:100, company:"Infosys", cat:"Logical Reasoning", diff:"Hard",
+q:"Find next: Z, X, V, T, ?",
+opts:["R","S","U","Q"], ans:0},
+
+// ================= CONTINUE 101–200 =================
+
+{id:101, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"What is 9 × 11?",
+opts:["98","99","100","101"], ans:1},
+
+{id:102, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Complete: 5, 10, 20, 40, ?",
+opts:["60","70","80","90"], ans:2},
+
+{id:103, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Synonym of 'Calm'.",
+opts:["Angry","Peaceful","Fast","Weak"], ans:1},
+
+{id:104, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"If 40% of 200 = ?",
+opts:["60","70","80","90"], ans:2},
+
+{id:105, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Odd one: 3, 5, 7, 9, 11, 14",
+opts:["3","5","9","14"], ans:3},
+
+{id:106, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Antonym of 'Begin'.",
+opts:["Start","End","Open","Go"], ans:1},
+
+{id:107, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"Find 30% of 300.",
+opts:["80","90","100","110"], ans:1},
+
+{id:108, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next: 11, 22, 33, 44, ?",
+opts:["50","55","60","66"], ans:3},
+
+{id:109, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Synonym of 'Angry'.",
+opts:["Mad","Happy","Calm","Soft"], ans:0},
+
+{id:110, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"If 8x = 64, x = ?",
+opts:["6","7","8","9"], ans:2},
+
+{id:111, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Find missing: 7, 14, 28, ?, 112",
+opts:["42","56","64","70"], ans:1},
+
+{id:112, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Antonym of 'Bright'.",
+opts:["Dark","Light","Smart","Clear"], ans:0},
+
+{id:113, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"Find 1/4 of 200.",
+opts:["40","45","50","55"], ans:2},
+
+{id:114, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Series: 100, 81, 64, 49, ?",
+opts:["25","36","16","9"], ans:1},
+
+{id:115, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Synonym of 'Truth'.",
+opts:["Fact","Lie","Fake","Wrong"], ans:0},
+
+{id:116, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"If 60/100 = ?%",
+opts:["40","50","60","70"], ans:2},
+
+{id:117, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Odd: 2, 6, 12, 20, 30, 42",
+opts:["2","6","30","42"], ans:3},
+
+{id:118, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Antonym of 'Soft'.",
+opts:["Hard","Smooth","Easy","Light"], ans:0},
+
+{id:119, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"Find 70% of 500.",
+opts:["300","350","400","450"], ans:1},
+
+{id:120, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Next: 1, 8, 27, 64, ?",
+opts:["100","125","150","200"], ans:1},
+
+// ====================== INFOSYS (121–200) ======================
+
+{id:121, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"A number is decreased by 25% and becomes 150. Find original number.",
+opts:["180","190","200","210"], ans:2},
+
+{id:122, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next: 6, 11, 21, 36, 56, ?",
+opts:["71","81","86","91"], ans:1},
+
+{id:123, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Synonym of 'Clever'.",
+opts:["Dumb","Smart","Weak","Slow"], ans:1},
+
+{id:124, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"If 3 pens cost 15, cost of 8 pens?",
+opts:["35","40","45","50"], ans:1},
+
+{id:125, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Odd one: 1, 8, 27, 65, 125",
+opts:["1","8","27","65"], ans:3},
+
+{id:126, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Antonym of 'Victory'.",
+opts:["Win","Defeat","Success","Gain"], ans:1},
+
+{id:127, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"Find simple interest on 1500 at 8% for 3 years.",
+opts:["300","320","360","400"], ans:2},
+
+{id:128, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"If 1=3, 2=6, 3=9, then 4=?",
+opts:["10","11","12","13"], ans:2},
+
+{id:129, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Synonym of 'Happy'.",
+opts:["Sad","Joyful","Angry","Weak"], ans:1},
+
+{id:130, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"Find 12.5% of 400.",
+opts:["40","45","50","55"], ans:2},
+
+{id:131, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Series: 2, 5, 10, 17, 26, ?",
+opts:["35","36","37","38"], ans:2},
+
+{id:132, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Antonym of 'Difficult'.",
+opts:["Hard","Easy","Tough","Strong"], ans:1},
+
+{id:133, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"If x/5 = 12, find x.",
+opts:["50","55","60","65"], ans:2},
+
+{id:134, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Odd: 10, 20, 30, 41, 50",
+opts:["10","20","30","41"], ans:3},
+
+{id:135, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Synonym of 'Begin'.",
+opts:["Start","End","Stop","Close"], ans:0},
+
+{id:136, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"If a car travels 120 km in 2 hrs, speed?",
+opts:["50","55","60","65"], ans:2},
+
+{id:137, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next: 1, 3, 9, 27, ?",
+opts:["54","81","72","90"], ans:1},
+
+{id:138, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Antonym of 'Love'.",
+opts:["Care","Hate","Like","Joy"], ans:1},
+
+{id:139, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"Find 0.75 of 200.",
+opts:["130","140","150","160"], ans:2},
+
+{id:140, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Series: 4, 9, 16, 25, ?",
+opts:["30","32","36","49"], ans:2},
+
+{id:141, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Synonym of 'Fast'.",
+opts:["Quick","Slow","Late","Weak"], ans:0},
+
+{id:142, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"If 15% of x = 45, find x.",
+opts:["250","300","350","400"], ans:1},
+
+{id:143, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Odd one: 16, 25, 36, 48, 64",
+opts:["16","25","36","48"], ans:3},
+
+{id:144, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Antonym of 'Rich'.",
+opts:["Poor","Wealthy","Strong","Smart"], ans:0},
+
+{id:145, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"Find 3/5 of 150.",
+opts:["80","90","100","110"], ans:1},
+
+{id:146, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Series: 1, 2, 6, 24, ?",
+opts:["60","100","120","150"], ans:2},
+
+{id:147, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Synonym of 'Small'.",
+opts:["Tiny","Huge","Large","Wide"], ans:0},
+
+{id:148, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"If 9x = 81, x = ?",
+opts:["8","9","10","11"], ans:1},
+
+{id:149, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Find next: 13, 26, 39, 52, ?",
+opts:["60","65","70","75"], ans:1},
+
+{id:150, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Antonym of 'True'.",
+opts:["Correct","False","Right","Exact"], ans:1},
+
+{id:151, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"If cost price is 200 and profit is 20%, selling price?",
+opts:["220","230","240","250"], ans:2},
+
+{id:152, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Odd: 3, 9, 27, 81, 121",
+opts:["3","9","27","121"], ans:3},
+
+{id:153, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Synonym of 'Strong'.",
+opts:["Weak","Powerful","Soft","Tiny"], ans:1},
+
+{id:154, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"Find 5% of 600.",
+opts:["25","30","35","40"], ans:1},
+
+{id:155, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Series: 7, 14, 28, 56, ?",
+opts:["100","110","112","120"], ans:2},
+
+{id:156, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Antonym of 'Old'.",
+opts:["New","Ancient","Aged","Past"], ans:0},
+
+{id:157, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"If 2x + 3 = 11, find x.",
+opts:["3","4","5","6"], ans:1},
+
+{id:158, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Odd one: Monday, Tuesday, January, Wednesday",
+opts:["Monday","Tuesday","January","Wednesday"], ans:2},
+
+{id:159, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Synonym of 'Big'.",
+opts:["Large","Small","Tiny","Weak"], ans:0},
+
+{id:160, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"Find 1/2 of 350.",
+opts:["150","160","170","175"], ans:3},
+
+{id:161, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Series: 5, 25, 125, 625, ?",
+opts:["1000","2000","3125","5000"], ans:2},
+
+{id:162, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Antonym of 'Good'.",
+opts:["Bad","Nice","Right","Best"], ans:0},
+
+{id:163, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"If 20% of x = 100, x = ?",
+opts:["400","450","500","550"], ans:2},
+
+{id:164, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Odd: 2, 4, 6, 8, 11",
+opts:["2","4","6","11"], ans:3},
+
+{id:165, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Synonym of 'Clean'.",
+opts:["Dirty","Neat","Rough","Weak"], ans:1},
+
+{id:166, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"Find 10% of 900.",
+opts:["80","90","100","110"], ans:1},
+
+{id:167, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Series: 2, 4, 8, 16, 32, ?",
+opts:["48","56","64","72"], ans:2},
+
+{id:168, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Antonym of 'Cold'.",
+opts:["Hot","Warm","Cool","Soft"], ans:0},
+
+{id:169, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"If 7x = 63, x = ?",
+opts:["7","8","9","10"], ans:2},
+
+{id:170, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Odd: 1, 4, 9, 16, 20",
+opts:["1","4","9","20"], ans:3},
+
+{id:171, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Synonym of 'Near'.",
+opts:["Close","Far","Distant","Weak"], ans:0},
+
+{id:172, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"Find 25% of 600.",
+opts:["120","130","140","150"], ans:3},
+
+{id:173, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Series: 3, 6, 12, 24, ?",
+opts:["36","40","48","60"], ans:2},
+
+{id:174, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Antonym of 'Fast'.",
+opts:["Slow","Quick","Rapid","Speed"], ans:0},
+
+{id:175, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"If 4x = 28, x = ?",
+opts:["6","7","8","9"], ans:1},
+
+{id:176, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Odd: 10, 20, 30, 40, 55",
+opts:["10","20","30","55"], ans:3},
+
+{id:177, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Synonym of 'Bright'.",
+opts:["Dull","Smart","Dark","Weak"], ans:1},
+
+{id:178, company:"Infosys", cat:"Quantitative Aptitude", diff:"Medium",
+q:"Find 2/3 of 90.",
+opts:["50","55","60","65"], ans:2},
+
+{id:179, company:"Infosys", cat:"Logical Reasoning", diff:"Medium",
+q:"Series: 9, 18, 36, 72, ?",
+opts:["100","120","144","150"], ans:2},
+
+{id:180, company:"Infosys", cat:"Verbal Ability", diff:"Medium",
+q:"Antonym of 'Light'.",
+opts:["Heavy","Soft","Bright","Weak"], ans:0},
+
+{id:181, company:"Infosys", cat:"Quantitative Aptitude", diff:"Hard",
+q:"If 5x + 10 = 40, x = ?",
+opts:["4","5","6","7"], ans:1},
+
+{id:182, company:"Infosys", cat:"Logical Reasoning", diff:"Hard",
+q:"Series: 1, 4, 13, 40, ?",
+opts:["121","122","123","124"], ans:2},
+
+{id:183, company:"Infosys", cat:"Verbal Ability", diff:"Hard",
+q:"Synonym of 'Rare'.",
+opts:["Common","Scarce","Easy","Fast"], ans:1},
+
+{id:184, company:"Infosys", cat:"Quantitative Aptitude", diff:"Hard",
+q:"If 10% of x = 80, x = ?",
+opts:["600","700","800","900"], ans:2},
+
+{id:185, company:"Infosys", cat:"Logical Reasoning", diff:"Hard",
+q:"Odd: 6, 12, 18, 24, 31",
+opts:["6","12","18","31"], ans:3},
+
+{id:186, company:"Infosys", cat:"Verbal Ability", diff:"Hard",
+q:"Antonym of 'Success'.",
+opts:["Win","Failure","Gain","Rise"], ans:1},
+
+{id:187, company:"Infosys", cat:"Quantitative Aptitude", diff:"Hard",
+q:"Find value of 99 × 11.",
+opts:["1089","1099","1109","1119"], ans:0},
+
+{id:188, company:"Infosys", cat:"Logical Reasoning", diff:"Hard",
+q:"Series: 2, 3, 5, 9, 17, ?",
+opts:["31","33","35","37"], ans:0},
+
+{id:189, company:"Infosys", cat:"Verbal Ability", diff:"Hard",
+q:"Synonym of 'Danger'.",
+opts:["Risk","Safe","Easy","Good"], ans:0},
+
+{id:190, company:"Infosys", cat:"Quantitative Aptitude", diff:"Hard",
+q:"If x² = 144, x = ?",
+opts:["10","11","12","13"], ans:2},
+
+{id:191, company:"Infosys", cat:"Logical Reasoning", diff:"Hard",
+q:"Odd: 11, 13, 17, 19, 21",
+opts:["11","13","17","21"], ans:3},
+
+{id:192, company:"Infosys", cat:"Verbal Ability", diff:"Hard",
+q:"Antonym of 'Increase'.",
+opts:["Grow","Rise","Decrease","Expand"], ans:2},
+
+{id:193, company:"Infosys", cat:"Quantitative Aptitude", diff:"Hard",
+q:"Find 15% of 800.",
+opts:["110","120","130","140"], ans:1},
+
+{id:194, company:"Infosys", cat:"Logical Reasoning", diff:"Hard",
+q:"Series: 3, 7, 15, 31, 63, ?",
+opts:["127","129","131","135"], ans:0},
+
+{id:195, company:"Infosys", cat:"Verbal Ability", diff:"Hard",
+q:"Synonym of 'Honest'.",
+opts:["Truthful","False","Weak","Bad"], ans:0},
+
+{id:196, company:"Infosys", cat:"Quantitative Aptitude", diff:"Hard",
+q:"If 25% of x = 50, x = ?",
+opts:["150","180","200","220"], ans:2},
+
+{id:197, company:"Infosys", cat:"Logical Reasoning", diff:"Hard",
+q:"Odd: 4, 8, 16, 32, 50",
+opts:["4","8","16","50"], ans:3},
+
+{id:198, company:"Infosys", cat:"Verbal Ability", diff:"Hard",
+q:"Antonym of 'Weak'.",
+opts:["Strong","Soft","Small","Low"], ans:0},
+
+{id:199, company:"Infosys", cat:"Quantitative Aptitude", diff:"Hard",
+q:"Find 50% of 450.",
+opts:["200","220","225","250"], ans:2},
+
+{id:200, company:"Infosys", cat:"Logical Reasoning", diff:"Hard",
+q:"Series: 1, 2, 4, 7, 11, 16, ?",
+opts:["20","21","22","23"], ans:1}
+
+// ====================== WIPRO (1–50) ======================
+
+{id:1, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 20% of 250?",
+opts:["40","45","50","55"], ans:2},
+
+{id:2, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"If 5x = 45, find x.",
+opts:["7","8","9","10"], ans:3},
+
+{id:3, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Find the odd one out: Apple, Banana, Carrot, Mango",
+opts:["Apple","Banana","Carrot","Mango"], ans:3},
+
+{id:4, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 15 + 25?",
+opts:["35","40","45","50"], ans:2},
+
+{id:5, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Complete the series: 2, 4, 6, 8, ?",
+opts:["9","10","11","12"], ans:2},
+
+{id:6, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 100/4?",
+opts:["20","25","30","35"], ans:2},
+
+{id:7, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"If a pen costs 10 and you buy 5, total cost?",
+opts:["40","50","60","70"], ans:2},
+
+{id:8, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Find next number: 1, 3, 5, 7, ?",
+opts:["8","9","10","11"], ans:2},
+
+{id:9, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Square of 9 is?",
+opts:["72","81","90","99"], ans:2},
+
+{id:10, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"10% of 500?",
+opts:["40","50","60","70"], ans:2},
+
+{id:11, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Find odd: 2, 4, 6, 9",
+opts:["2","4","6","9"], ans:4},
+
+{id:12, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"If x = 10, what is x²?",
+opts:["50","100","150","200"], ans:2},
+
+{id:13, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"50 + 50 = ?",
+opts:["90","100","110","120"], ans:2},
+
+{id:14, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Alphabet series: A, C, E, ?",
+opts:["F","G","H","I"], ans:2},
+
+{id:15, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 12 × 12?",
+opts:["124","134","144","154"], ans:3},
+
+{id:16, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"Divide 81 by 9",
+opts:["7","8","9","10"], ans:3},
+
+{id:17, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Which is a prime number?",
+opts:["4","6","9","7"], ans:4},
+
+{id:18, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 30% of 200?",
+opts:["50","60","70","80"], ans:2},
+
+{id:19, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"100 - 45 = ?",
+opts:["45","55","65","75"], ans:2},
+
+{id:20, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Next letter: D, E, F, ?",
+opts:["G","H","I","J"], ans:1},
+
+{id:21, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Half of 90?",
+opts:["40","45","50","55"], ans:2},
+
+{id:22, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"25 × 4 = ?",
+opts:["80","90","100","110"], ans:3},
+
+{id:23, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Odd one: Dog, Cat, Lion, Table",
+opts:["Dog","Cat","Lion","Table"], ans:4},
+
+{id:24, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 11 + 11?",
+opts:["20","21","22","23"], ans:3},
+
+{id:25, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"200/5 = ?",
+opts:["30","35","40","45"], ans:3},
+
+{id:26, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Series: 10, 20, 30, ?",
+opts:["35","40","50","60"], ans:2},
+
+{id:27, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 9 + 6?",
+opts:["13","14","15","16"], ans:3},
+
+{id:28, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"15 × 2 = ?",
+opts:["20","25","30","35"], ans:3},
+
+{id:29, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Find next: Z, Y, X, ?",
+opts:["W","V","U","T"], ans:2},
+
+{id:30, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 64/8?",
+opts:["6","7","8","9"], ans:3},
+
+{id:31, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"7 + 8 = ?",
+opts:["13","14","15","16"], ans:3},
+
+{id:32, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Which is even?",
+opts:["11","13","15","18"], ans:4},
+
+{id:33, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Square of 5?",
+opts:["10","20","25","30"], ans:3},
+
+{id:34, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"90 - 30 = ?",
+opts:["50","60","70","80"], ans:2},
+
+{id:35, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Find odd: Sun, Moon, Star, Chair",
+opts:["Sun","Moon","Star","Chair"], ans:4},
+
+{id:36, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 18 + 2?",
+opts:["18","19","20","21"], ans:3},
+
+{id:37, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"3 × 7 = ?",
+opts:["20","21","22","23"], ans:2},
+
+{id:38, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Next: 5, 10, 15, ?",
+opts:["18","20","25","30"], ans:2},
+
+{id:39, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 1% of 1000?",
+opts:["5","10","15","20"], ans:2},
+
+{id:40, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"12 + 13 = ?",
+opts:["23","24","25","26"], ans:3},
+
+{id:41, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Which is vowel?",
+opts:["B","C","A","D"], ans:3},
+
+{id:42, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 81 - 9?",
+opts:["70","71","72","73"], ans:3},
+
+{id:43, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"6 × 6 = ?",
+opts:["30","32","36","40"], ans:3},
+
+{id:44, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Series: 3, 6, 9, ?",
+opts:["10","11","12","13"], ans:3},
+
+{id:45, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Half of 50?",
+opts:["20","25","30","35"], ans:2},
+
+{id:46, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"99 + 1 = ?",
+opts:["98","99","100","101"], ans:3},
+
+{id:47, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Odd one: Red, Blue, Green, Table",
+opts:["Red","Blue","Green","Table"], ans:4},
+
+{id:48, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 7²?",
+opts:["42","45","49","56"], ans:3},
+
+{id:49, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"40 + 60 = ?",
+opts:["90","100","110","120"], ans:2},
+
+{id:50, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Next: A, B, C, ?",
+opts:["D","E","F","G"], ans:1},
+
+    // ====================== WIPRO (51–100) ======================
+
+{id:51, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"If 8x = 64, find x.",
+opts:["6","7","8","9"], ans:3},
+
+{id:52, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"120 + 80 = ?",
+opts:["180","190","200","210"], ans:3},
+
+{id:53, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Find next: 2, 6, 12, 20, ?",
+opts:["28","30","32","34"], ans:2},
+
+{id:54, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 25% of 400?",
+opts:["80","90","100","110"], ans:3},
+
+{id:55, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"15 × 15 = ?",
+opts:["200","215","225","250"], ans:3},
+
+{id:56, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Odd one out: Square, Circle, Triangle, Apple",
+opts:["Square","Circle","Triangle","Apple"], ans:4},
+
+{id:57, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 144/12?",
+opts:["10","11","12","13"], ans:3},
+
+{id:58, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"200 - 125 = ?",
+opts:["65","70","75","80"], ans:3},
+
+{id:59, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Series: A, D, G, J, ?",
+opts:["K","L","M","N"], ans:3},
+
+{id:60, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Square of 12?",
+opts:["124","134","144","154"], ans:3},
+
+{id:61, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"9 × 9 = ?",
+opts:["72","81","90","99"], ans:2},
+
+{id:62, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Which number is prime?",
+opts:["21","27","29","33"], ans:3},
+
+{id:63, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"50% of 180?",
+opts:["80","90","100","110"], ans:2},
+
+{id:64, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"300/6 = ?",
+opts:["40","45","50","55"], ans:3},
+
+{id:65, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Find odd: January, March, Sunday, May",
+opts:["January","March","Sunday","May"], ans:3},
+
+{id:66, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 13 + 27?",
+opts:["38","39","40","41"], ans:3},
+
+{id:67, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"7 × 8 = ?",
+opts:["54","56","58","60"], ans:2},
+
+{id:68, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Series: 1, 4, 9, 16, ?",
+opts:["20","24","25","30"], ans:3},
+
+{id:69, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 10% of 900?",
+opts:["80","90","100","110"], ans:2},
+
+{id:70, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"88 + 12 = ?",
+opts:["98","99","100","101"], ans:3},
+
+{id:71, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Next letter: M, N, O, ?",
+opts:["P","Q","R","S"], ans:1},
+
+{id:72, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 81/9?",
+opts:["8","9","10","11"], ans:2},
+
+{id:73, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"14 + 16 = ?",
+opts:["28","29","30","31"], ans:3},
+
+{id:74, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Odd one: Pen, Pencil, Eraser, Chair",
+opts:["Pen","Pencil","Eraser","Chair"], ans:4},
+
+{id:75, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 11²?",
+opts:["111","121","131","141"], ans:2},
+
+{id:76, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"250 - 100 = ?",
+opts:["120","130","140","150"], ans:4},
+
+{id:77, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Series: 5, 10, 20, 40, ?",
+opts:["60","70","80","90"], ans:3},
+
+{id:78, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 1/2 of 120?",
+opts:["50","55","60","65"], ans:3},
+
+{id:79, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"18 × 2 = ?",
+opts:["34","35","36","37"], ans:3},
+
+{id:80, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Find next: B, D, F, H, ?",
+opts:["I","J","K","L"], ans:2},
+
+{id:81, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 99/11?",
+opts:["7","8","9","10"], ans:3},
+
+{id:82, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"45 + 55 = ?",
+opts:["90","95","100","105"], ans:3},
+
+{id:83, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Odd one: Cow, Goat, Sheep, Car",
+opts:["Cow","Goat","Sheep","Car"], ans:4},
+
+{id:84, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Square of 8?",
+opts:["54","60","64","68"], ans:3},
+
+{id:85, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"60 × 2 = ?",
+opts:["110","120","130","140"], ans:2},
+
+{id:86, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Series: 100, 90, 80, ?",
+opts:["60","65","70","75"], ans:3},
+
+{id:87, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 30% of 150?",
+opts:["40","45","50","55"], ans:2},
+
+{id:88, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"33 + 44 = ?",
+opts:["75","76","77","78"], ans:3},
+
+{id:89, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Next letter: X, Y, Z, ?",
+opts:["A","B","C","D"], ans:1},
+
+{id:90, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 16/4?",
+opts:["2","3","4","5"], ans:3},
+
+{id:91, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"22 + 28 = ?",
+opts:["48","49","50","51"], ans:3},
+
+{id:92, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Odd one: Monday, Tuesday, Winter, Friday",
+opts:["Monday","Tuesday","Winter","Friday"], ans:3},
+
+{id:93, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 14²?",
+opts:["186","194","196","200"], ans:3},
+
+{id:94, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"70 - 25 = ?",
+opts:["40","45","50","55"], ans:2},
+
+{id:95, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Series: 3, 9, 27, ?",
+opts:["54","60","72","81"], ans:4},
+
+{id:96, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 200/10?",
+opts:["10","15","20","25"], ans:3},
+
+{id:97, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"8 × 12 = ?",
+opts:["88","92","96","100"], ans:3},
+
+{id:98, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Find odd: Earth, Mars, Sun, Venus",
+opts:["Earth","Mars","Sun","Venus"], ans:3},
+
+{id:99, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 45% of 200?",
+opts:["80","85","90","95"], ans:3},
+
+{id:100, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"1000 - 1 = ?",
+opts:["998","999","1000","1001"], ans:2},
+
+    // ====================== WIPRO (101–150) ======================
+
+{id:101, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 12% of 500?",
+opts:["50","55","60","65"], ans:3},
+
+{id:102, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"150 + 150 = ?",
+opts:["250","280","300","350"], ans:3},
+
+{id:103, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Find next: 1, 2, 4, 8, ?",
+opts:["12","14","16","18"], ans:3},
+
+{id:104, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Square of 15?",
+opts:["200","215","225","250"], ans:3},
+
+{id:105, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"75 × 2 = ?",
+opts:["140","145","150","155"], ans:3},
+
+{id:106, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Odd one: Laptop, Mouse, Keyboard, Banana",
+opts:["Laptop","Mouse","Keyboard","Banana"], ans:4},
+
+{id:107, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 1/4 of 200?",
+opts:["40","45","50","55"], ans:3},
+
+{id:108, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"400 - 175 = ?",
+opts:["215","220","225","230"], ans:3},
+
+{id:109, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Series: 2, 5, 10, 17, ?",
+opts:["24","25","26","27"], ans:2},
+
+{id:110, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 20% of 600?",
+opts:["110","120","130","140"], ans:2},
+
+{id:111, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"11 × 11 = ?",
+opts:["111","121","131","141"], ans:2},
+
+{id:112, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Next letter: P, Q, R, S, ?",
+opts:["T","U","V","W"], ans:1},
+
+{id:113, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 64/16?",
+opts:["2","3","4","5"], ans:3},
+
+{id:114, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"99 + 101 = ?",
+opts:["190","195","200","205"], ans:3},
+
+{id:115, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Odd one: Cat, Dog, Cow, Carrot",
+opts:["Cat","Dog","Cow","Carrot"], ans:4},
+
+{id:116, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Square of 20?",
+opts:["300","350","400","450"], ans:3},
+
+{id:117, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"300 × 3 = ?",
+opts:["800","850","900","950"], ans:3},
+
+{id:118, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Series: 10, 15, 20, 25, ?",
+opts:["28","30","35","40"], ans:2},
+
+{id:119, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 5% of 1000?",
+opts:["40","45","50","55"], ans:3},
+
+{id:120, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"500 - 250 = ?",
+opts:["200","240","250","260"], ans:3},
+
+{id:121, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Find next: A, E, I, M, ?",
+opts:["O","P","Q","R"], ans:2},
+
+{id:122, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 144/12?",
+opts:["10","11","12","13"], ans:3},
+
+{id:123, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"18 + 22 = ?",
+opts:["38","39","40","41"], ans:3},
+
+{id:124, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Odd one: Red, Green, Blue, Spoon",
+opts:["Red","Green","Blue","Spoon"], ans:4},
+
+{id:125, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 13²?",
+opts:["158","165","169","172"], ans:3},
+
+{id:126, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"600/3 = ?",
+opts:["180","190","200","210"], ans:3},
+
+{id:127, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Series: 3, 6, 12, 24, ?",
+opts:["36","40","48","60"], ans:3},
+
+{id:128, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 10% of 250?",
+opts:["20","25","30","35"], ans:2},
+
+{id:129, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"45 × 4 = ?",
+opts:["160","170","180","190"], ans:3},
+
+{id:130, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Next letter: C, F, I, L, ?",
+opts:["M","N","O","P"], ans:3},
+
+{id:131, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 81/3?",
+opts:["25","26","27","28"], ans:3},
+
+{id:132, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"77 + 33 = ?",
+opts:["100","105","110","115"], ans:3},
+
+{id:133, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Odd one: Pen, Book, Table, Notebook",
+opts:["Pen","Book","Table","Notebook"], ans:3},
+
+{id:134, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Square of 7?",
+opts:["47","48","49","50"], ans:3},
+
+{id:135, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"90 × 10 = ?",
+opts:["800","900","1000","1100"], ans:2},
+
+{id:136, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Series: 100, 200, 300, ?",
+opts:["350","400","450","500"], ans:4},
+
+{id:137, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 60% of 100?",
+opts:["50","55","60","65"], ans:3},
+
+{id:138, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"33 × 3 = ?",
+opts:["90","95","99","105"], ans:3},
+
+{id:139, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Next: J, K, L, M, ?",
+opts:["N","O","P","Q"], ans:1},
+
+{id:140, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 225/15?",
+opts:["10","12","15","18"], ans:3},
+
+{id:141, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"120 - 60 = ?",
+opts:["50","60","70","80"], ans:2},
+
+{id:142, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Odd one: Winter, Summer, Rain, Table",
+opts:["Winter","Summer","Rain","Table"], ans:4},
+
+{id:143, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 16²?",
+opts:["240","250","256","260"], ans:3},
+
+{id:144, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"8 × 15 = ?",
+opts:["110","115","120","125"], ans:3},
+
+{id:145, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Series: 4, 16, 64, ?",
+opts:["128","192","256","512"], ans:3},
+
+{id:146, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 1/5 of 500?",
+opts:["90","95","100","105"], ans:3},
+
+{id:147, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"200 + 300 = ?",
+opts:["400","450","500","550"], ans:3},
+
+{id:148, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Find next: Z, X, V, T, ?",
+opts:["R","S","U","W"], ans:1},
+
+{id:149, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 49/7?",
+opts:["5","6","7","8"], ans:3},
+
+{id:150, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"150 - 75 = ?",
+opts:["65","70","75","80"], ans:3},
+    // ====================== WIPRO (151–200) ======================
+
+{id:151, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 18% of 500?",
+opts:["80","85","90","95"], ans:3},
+
+{id:152, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"250 + 750 = ?",
+opts:["900","950","1000","1050"], ans:3},
+
+{id:153, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Series: 1, 3, 9, 27, ?",
+opts:["54","72","81","90"], ans:3},
+
+{id:154, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Square of 25?",
+opts:["575","600","625","650"], ans:3},
+
+{id:155, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"45 × 5 = ?",
+opts:["200","215","225","235"], ans:3},
+
+{id:156, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Odd one: Earth, Venus, Mars, Chair",
+opts:["Earth","Venus","Mars","Chair"], ans:4},
+
+{id:157, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 1/2 of 300?",
+opts:["120","130","150","160"], ans:3},
+
+{id:158, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"800 - 375 = ?",
+opts:["405","415","425","435"], ans:3},
+
+{id:159, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Series: 2, 4, 8, 16, ?",
+opts:["24","28","30","32"], ans:4},
+
+{id:160, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 40% of 250?",
+opts:["90","95","100","105"], ans:3},
+
+{id:161, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"12 × 13 = ?",
+opts:["150","156","160","165"], ans:2},
+
+{id:162, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Next letter: A, D, G, J, ?",
+opts:["K","L","M","N"], ans:3},
+
+{id:163, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 121/11?",
+opts:["9","10","11","12"], ans:3},
+
+{id:164, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"99 + 99 = ?",
+opts:["188","198","208","218"], ans:2},
+
+{id:165, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Odd one: Car, Bike, Bus, Apple",
+opts:["Car","Bike","Bus","Apple"], ans:4},
+
+{id:166, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Square of 30?",
+opts:["800","850","900","950"], ans:3},
+
+{id:167, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"500 × 2 = ?",
+opts:["900","1000","1100","1200"], ans:2},
+
+{id:168, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Series: 5, 25, 125, ?",
+opts:["250","500","625","750"], ans:3},
+
+{id:169, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 15% of 300?",
+opts:["35","40","45","50"], ans:3},
+
+{id:170, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"700 - 300 = ?",
+opts:["350","375","400","425"], ans:3},
+
+{id:171, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Next letter: B, E, H, K, ?",
+opts:["L","M","N","O"], ans:3},
+
+{id:172, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 64/8?",
+opts:["6","7","8","9"], ans:3},
+
+{id:173, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"33 + 66 = ?",
+opts:["88","99","100","111"], ans:2},
+
+{id:174, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Odd one: Sun, Moon, Star, Table",
+opts:["Sun","Moon","Star","Table"], ans:4},
+
+{id:175, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 14 × 14?",
+opts:["184","190","196","200"], ans:3},
+
+{id:176, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"1000/5 = ?",
+opts:["150","180","200","250"], ans:3},
+
+{id:177, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Series: 3, 6, 9, 12, ?",
+opts:["14","15","16","18"], ans:2},
+
+{id:178, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 75% of 200?",
+opts:["140","150","160","170"], ans:2},
+
+{id:179, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"88 - 44 = ?",
+opts:["40","42","44","46"], ans:3},
+
+{id:180, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Next: M, O, Q, S, ?",
+opts:["T","U","V","W"], ans:1},
+
+{id:181, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 1/3 of 90?",
+opts:["25","30","35","40"], ans:2},
+
+{id:182, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"45 × 6 = ?",
+opts:["250","260","270","280"], ans:3},
+
+{id:183, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Odd one: Red, Blue, Green, Car",
+opts:["Red","Blue","Green","Car"], ans:4},
+
+{id:184, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Square of 9?",
+opts:["72","78","81","84"], ans:3},
+
+{id:185, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"120 + 180 = ?",
+opts:["280","290","300","310"], ans:3},
+
+{id:186, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Series: 10, 30, 60, 100, ?",
+opts:["130","140","150","160"], ans:2},
+
+{id:187, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 20% of 800?",
+opts:["150","160","170","180"], ans:2},
+
+{id:188, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"77 × 2 = ?",
+opts:["140","150","154","160"], ans:3},
+
+{id:189, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Next letter: X, V, T, R, ?",
+opts:["P","Q","S","U"], ans:1},
+
+{id:190, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 144/16?",
+opts:["7","8","9","10"], ans:3},
+
+{id:191, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"500 + 500 = ?",
+opts:["900","950","1000","1050"], ans:3},
+
+{id:192, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Odd one: Pen, Book, Laptop, Orange",
+opts:["Pen","Book","Laptop","Orange"], ans:4},
+
+{id:193, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"Square of 40?",
+opts:["1500","1550","1600","1650"], ans:3},
+
+{id:194, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"900 - 450 = ?",
+opts:["420","430","450","470"], ans:3},
+
+{id:195, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Series: 1, 8, 27, 64, ?",
+opts:["100","121","125","144"], ans:3},
+
+{id:196, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 50% of 500?",
+opts:["200","250","300","350"], ans:2},
+
+{id:197, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"25 × 8 = ?",
+opts:["180","190","200","210"], ans:3},
+
+{id:198, company:"WIPRO", cat:"Logical Reasoning", diff:"Easy",
+q:"Next letter: C, G, K, O, ?",
+opts:["P","Q","R","S"], ans:2},
+
+{id:199, company:"WIPRO", cat:"Quantitative Aptitude", diff:"Easy",
+q:"What is 99/9?",
+opts:["10","11","12","13"], ans:2},
+
+{id:200, company:"WIPRO", cat:"Arithmetic", diff:"Easy",
+q:"100 - 1 = ?",
+opts:["98","99","100","101"], ans:2}
+];  
 
 // ══════════════════════════════════════════════════════════
 // RELIANCE FOUNDATION – ANALYTICAL ABILITY (20 Qs)
