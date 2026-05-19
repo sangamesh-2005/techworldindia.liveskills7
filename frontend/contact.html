@@ -57,7 +57,11 @@
     <div class="info-box">
         <strong>⚙️ Admin Setup — Do this once:</strong><br>
         📧 Messages will be delivered to: <strong style="color:#fff;">sangameshhalli9@gmail.com</strong><br><br>
-        
+        <span class="step-badge">1</span> Go to <a href="https://www.emailjs.com" target="_blank" style="color:#00c6ff;">emailjs.com</a> → Sign up with <strong>sangameshhalli9@gmail.com</strong><br>
+        <span class="step-badge">2</span> Add Email Service → connect Gmail → copy <strong>Service ID</strong><br>
+        <span class="step-badge">3</span> Create Email Template with variables: <code>{{from_name}}</code>, <code>{{from_email}}</code>, <code>{{message}}</code>, <code>{{to_email}}</code> → copy <strong>Template ID</strong><br>
+        <span class="step-badge">4</span> Account → copy your <strong>Public Key</strong><br>
+        <span class="step-badge">5</span> Paste all 3 values in the <code>EMAILJS CONFIG</code> in this file's &lt;script&gt;
     </div>
 
     <div class="glass-card">
@@ -113,6 +117,14 @@
         btn.textContent = "Sending...";
 
         try {
+            await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+                from_name:  name,
+                from_email: email,
+                message:    message,
+                reply_to:   email,
+                to_email:   ADMIN_EMAIL   // delivered to sangameshhalli9@gmail.com
+            });
+
             showStatus("✅ Message sent! We'll get back to you soon.", "#00c6ff");
             document.getElementById("contactName").value    = "";
             document.getElementById("contactEmail").value   = "";
@@ -135,4 +147,6 @@
 </script>
 
 </body>
+</html>
+
 </html>
