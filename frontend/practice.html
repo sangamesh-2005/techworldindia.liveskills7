@@ -425,6 +425,176 @@
 <script>
 // ─── ALL QUESTIONS ───────────────────────────────────────────────────────────
 const ALL = [
+    /* =========================================================
+   MASSIVE QUESTION GENERATOR (5000+ QUESTIONS)
+========================================================= */
+
+const categories = [
+    "Verbal Ability",
+    "Analytical Ability",
+    "Numerical Ability",
+    "Coding",
+    "Future Engineers"
+];
+
+const difficulties = [
+    "Easy",
+    "Medium",
+    "Hard"
+];
+
+const templates = {
+
+    "Verbal Ability":[
+        {
+            q:"Choose the correct synonym of 'Rapid'.",
+            opts:["Slow","Fast","Weak","Silent"],
+            ans:1
+        },
+        {
+            q:"Choose the antonym of 'Ancient'.",
+            opts:["Old","Modern","Historic","Past"],
+            ans:1
+        },
+        {
+            q:"Fill in the blank: She ___ to school everyday.",
+            opts:["go","goes","gone","going"],
+            ans:1
+        }
+    ],
+
+    "Analytical Ability":[
+        {
+            q:"Find the next number: 2,4,8,16,?",
+            opts:["20","24","32","64"],
+            ans:2
+        },
+        {
+            q:"Which direction is opposite to North?",
+            opts:["East","West","South","North-East"],
+            ans:2
+        },
+        {
+            q:"If CAT = 24, DOG = ?",
+            opts:["26","30","32","28"],
+            ans:1
+        }
+    ],
+
+    "Numerical Ability":[
+        {
+            q:"What is 25 × 4 ?",
+            opts:["50","75","100","125"],
+            ans:2
+        },
+        {
+            q:"Solve: 144 ÷ 12",
+            opts:["10","11","12","13"],
+            ans:2
+        },
+        {
+            q:"What is 15% of 200?",
+            opts:["25","30","35","40"],
+            ans:1
+        }
+    ],
+
+    "Coding":[
+        {
+            q:"Which keyword declares variable in JavaScript?",
+            opts:["int","define","let","dim"],
+            ans:2
+        },
+        {
+            q:"Which HTML tag creates hyperlink?",
+            opts:["a","link","href","url"],
+            ans:0
+        },
+        {
+            q:"Which data structure uses FIFO?",
+            opts:["Stack","Queue","Tree","Graph"],
+            ans:1
+        }
+    ],
+
+    "Future Engineers":[
+        {
+            q:"What does AI stand for?",
+            opts:["Artificial Intelligence","Auto Internet","Advanced Interface","None"],
+            ans:0
+        },
+        {
+            q:"Which language is popular for AI?",
+            opts:["Python","HTML","CSS","XML"],
+            ans:0
+        },
+        {
+            q:"What is cloud computing?",
+            opts:[
+                "Internet-based computing",
+                "Rain prediction",
+                "Weather server",
+                "Graphics design"
+            ],
+            ans:0
+        }
+    ]
+};
+
+/* =========================================================
+   GENERATE 5000+ QUESTIONS
+========================================================= */
+
+const ALL = [];
+
+let idCounter = 1;
+
+for(let i=0;i<1200;i++){
+
+    categories.forEach(cat=>{
+
+        const arr = templates[cat];
+
+        const temp =
+        arr[Math.floor(Math.random()*arr.length)];
+
+        ALL.push({
+
+            id:idCounter++,
+
+            cat:cat,
+
+            src:
+            cat === "Coding"
+            ? "Coding Round"
+            :
+            cat === "Future Engineers"
+            ? "Future Engineers"
+            :
+            "Reliance Foundation",
+
+            diff:
+            difficulties[
+                Math.floor(
+                    Math.random()*difficulties.length
+                )
+            ],
+
+            q:temp.q + " #" + idCounter,
+
+            opts:[...temp.opts],
+
+            ans:temp.ans
+        });
+
+    });
+
+}
+
+console.log(
+    "Total Questions Generated:",
+    ALL.length
+);
 
 // ══════════════════════════════════════════════════════════
 // RELIANCE FOUNDATION – VERBAL ABILITY (20 Qs)
