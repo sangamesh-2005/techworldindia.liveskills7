@@ -2,59 +2,1000 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practice Problems | techworldindia</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        body { background:#05080f; color:#fff; font-family:'Poppins',sans-serif; }
-        nav a { color:#fff; text-decoration:none; margin:0 12px; }
-        .prob-card { background:#0b0f19; border-radius:10px; padding:20px; margin-bottom:14px; border-left:4px solid #0072ff; }
-        .badge-easy { background:#16a34a; }
-        .badge-medium { background:#ca8a04; }
-        .badge-hard { background:#dc2626; }
-        .gradient-text { background:linear-gradient(45deg,#00c6ff,#0072ff); -background-clip:text; -webkit-text-fill-color:black; }
+        :root {
+            --bg: #05080f;
+            --surface: #0b0f1a;
+            --surface2: #111827;
+            --border: #1e2740;
+            --accent: #0072ff;
+            --accent2: #00c6ff;
+            --green: #10b981;
+            --yellow: #f59e0b;
+            --red: #ef4444;
+            --text: #e2e8f0;
+            --muted: #64748b;
+            --muted2: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* NAV */
+        nav {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 28px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a {
+            color: var(--muted2);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: all .2s;
+        }
+        nav a:hover { background: var(--border); color: #fff; }
+        nav .brand {
+            font-family: 'Space Mono', monospace;
+            font-size: 15px;
+            color: var(--accent2);
+            margin-right: auto;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 48px 28px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(22px, 4vw, 34px);
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        .hero p { color: var(--muted2); font-size: 14px; }
+
+        /* CONTROLS */
+        .controls {
+            max-width: 1100px;
+            margin: 0 auto 28px;
+            padding: 0 28px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        .search-box {
+            flex: 1; min-width: 220px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 9px 14px;
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            outline: none;
+            transition: border .2s;
+        }
+        .search-box:focus { border-color: var(--accent); }
+        .search-box::placeholder { color: var(--muted); }
+
+        .filter-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--muted2);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all .2s;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        /* STATS BAR */
+        .stats-bar {
+            max-width: 1100px;
+            margin: 0 auto 20px;
+            padding: 0 28px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .stat-pill {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 5px 14px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .stat-pill .dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+        }
+
+        /* GRID */
+        .grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 28px 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 14px;
+        }
+
+        /* CARD */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px 20px;
+            cursor: pointer;
+            transition: border-color .2s, transform .15s, box-shadow .2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            border-radius: 12px 0 0 12px;
+        }
+        .card.easy::before   { background: var(--green); }
+        .card.medium::before { background: var(--yellow); }
+        .card.hard::before   { background: var(--red); }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,114,255,.15);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .card-num {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            color: var(--muted);
+            white-space: nowrap;
+            margin-top: 2px;
+        }
+        .badge {
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .badge.easy   { background: rgba(16,185,129,.15); color: #10b981; border: 1px solid rgba(16,185,129,.3); }
+        .badge.medium { background: rgba(245,158,11,.15); color: #f59e0b; border: 1px solid rgba(245,158,11,.3); }
+        .badge.hard   { background: rgba(239,68,68,.15);  color: #ef4444; border: 1px solid rgba(239,68,68,.3); }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        .card-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            font-size: 11px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            color: var(--muted2);
+            padding: 2px 9px;
+            border-radius: 4px;
+        }
+
+        /* MODAL */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.75);
+            z-index: 200;
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.open { display: flex; }
+        .modal {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            max-width: 680px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 28px;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 14px; right: 16px;
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--muted2);
+            width: 30px; height: 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .modal-close:hover { background: var(--border); color: #fff; }
+        .modal h3 {
+            font-size: 15px;
+            margin-bottom: 16px;
+            padding-right: 40px;
+            line-height: 1.5;
+        }
+        .option {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 11px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all .15s;
+            font-size: 14px;
+        }
+        .option:hover { border-color: var(--accent); background: rgba(0,114,255,.07); }
+        .option.selected.correct { background: rgba(16,185,129,.12); border-color: var(--green); color: var(--green); }
+        .option.selected.wrong   { background: rgba(239,68,68,.12);  border-color: var(--red);   color: var(--red); }
+        .option.reveal.correct   { background: rgba(16,185,129,.12); border-color: var(--green); color: var(--green); }
+        .opt-letter {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            width: 24px; height: 24px;
+            border-radius: 4px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .result-msg {
+            margin-top: 12px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            display: none;
+        }
+        .result-msg.correct { background: rgba(16,185,129,.1); border: 1px solid var(--green); color: var(--green); }
+        .result-msg.wrong   { background: rgba(239,68,68,.1);  border: 1px solid var(--red);   color: var(--red); }
+        
+<div style="display:flex;gap:10px;margin-top:18px;">
+    <button id="prevBtn" onclick="prevQuestion()" style="
+        padding:10px 18px;
+        border:none;
+        border-radius:8px;
+        background:#1e2740;
+        color:white;
+        cursor:pointer;
+        font-weight:600;
+    ">⬅ Back</button>
+
+    <button id="nextBtn" onclick="nextQuestion()" style="
+        padding:10px 18px;
+        border:none;
+        border-radius:8px;
+        background:linear-gradient(90deg,#0072ff,#00c6ff);
+        color:white;
+        cursor:pointer;
+        font-weight:600;
+        margin-left:auto;
+    ">Next ➜</button>
+</div>
+
+        /* EMPTY */
+        .empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--muted);
+            grid-column: 1/-1;
+        }
+        .empty span { font-size: 40px; display: block; margin-bottom: 10px; }
+
+        @media(max-width:600px){
+            .grid { grid-template-columns: 1fr; }
+            .hero { padding: 32px 16px 16px; }
+            .controls, .stats-bar, .grid { padding-left: 16px; padding-right: 16px; }
+        }
     </style>
 </head>
 <body>
-<nav class="py-3 px-4" style="background:#0b0f19;">
+
+<nav>
+    <span class="brand">⚡ techworldindia</span>
     <a href="index.html">🏠 Home</a>
     <a href="test.html">📝 Take Test</a>
 </nav>
 
-<div class="container mt-5">
-    <h2 class="mb-1">💻 <span class="gradient-text">Welcome to Practice Problems</span></h2>
-    <p class="text-secondary mb-4">Sharpen your skills problem by problem</p>
-    <div id="loading" class="text-secondary">Loading problems...</div>
-    <div id="practiceContainer"></div>
+<div class="hero">
+    <h1>// Practice Problems</h1>
+    <p>Sharpen your aptitude — verbal, analytical, and numerical — one problem at a time.</p>
+</div>
+
+<div class="controls">
+    <input class="search-box" id="searchBox" placeholder="🔍  Search questions..." oninput="render()">
+    <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+    <button class="filter-btn" onclick="setFilter('Verbal Ability',this)">Verbal</button>
+    <button class="filter-btn" onclick="setFilter('Analytical Ability',this)">Analytical</button>
+    <button class="filter-btn" onclick="setFilter('Numerical Ability',this)">Numerical</button>
+    <button class="filter-btn" onclick="setFilter('Coding',this)">Coding</button>
+    <button class="filter-btn" onclick="setFilter('Infosys',this)">Infosys</button>
+    <button class="filter-btn" onclick="setFilter('Easy',this)">Easy</button>
+    <button class="filter-btn" onclick="setFilter('Medium',this)">Medium</button>
+    <button class="filter-btn" onclick="setFilter('Hard',this)">Hard</button>
+</div>
+
+<div class="stats-bar">
+    <div class="stat-pill"><span class="dot" style="background:var(--green)"></span><span id="easyCount">0 Easy</span></div>
+    <div class="stat-pill"><span class="dot" style="background:var(--yellow)"></span><span id="medCount">0 Medium</span></div>
+    <div class="stat-pill"><span class="dot" style="background:var(--red)"></span><span id="hardCount">0 Hard</span></div>
+    <div class="stat-pill" style="margin-left:auto"><span id="totalCount">0 Total</span></div>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal">
+        <button class="modal-close" onclick="closeModalDirect()">✕</button>
+        <div style="display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap;">
+            <span id="mBadge" class="badge"></span>
+            <span id="mTag" class="tag"></span>
+            <span id="mNum" style="font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);margin-left:auto;"></span>
+        </div>
+        <h3 id="mTitle"></h3>
+        <div id="mOptions"></div>
+        <div class="result-msg" id="resultMsg"></div>
+    </div>
 </div>
 
 <script>
-const API = "http://localhost:5000/api";
-async function loadPractice() {
-    try {
-        const res = await fetch(`${API}/practice`);
-        const data = await res.json();
-        document.getElementById("loading").classList.add("d-none");
-        const container = document.getElementById("practiceContainer");
-        data.forEach(item => {
-            const badgeClass = item.difficulty === "Hard" ? "badge-hard" : item.difficulty === "Medium" ? "badge-medium" : "badge-easy";
-            container.innerHTML += `
-                <div class="prob-card">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-1">${item.title}</h5>
-                        <span class="badge ${badgeClass}">${item.difficulty}</span>
-                    </div>
-                    <p class="text-secondary mb-1">${item.description || ""}</p>
-                    <small class="text-muted">Category: ${item.category}</small>
-                </div>`;
-        });
-        if (data.length === 0) container.innerHTML = `<p class="text-secondary">No problems found.</p>`;
-    } catch (err) {
-        document.getElementById("loading").textContent = "⚠️ Could not connect to server.";
+// ─── ALL QUESTIONS ───────────────────────────────────────────────────────────
+const ALL = [
+
+// ══════════════════════════════════════════════════════════
+// RELIANCE FOUNDATION – VERBAL ABILITY (20 Qs)
+// ══════════════════════════════════════════════════════════
+{id:1,  cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
+ q:"Fill in the blank with the correct spelling:\nThere should be a ramp in all public places to overcome the ___ to wheelchair access.",
+ opts:["hinderance","hindrance","hinderense","hinderanse"], ans:1},
+
+{id:2,  cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Medium",
+ q:"The error, if any, will be in one part of the sentence. Critics everywhere has praised her new novel.",
+ opts:["Critics everywhere","has praised","her new novel","No Error"], ans:1},
+
+{id:3,  cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
+ q:"Fill in the blank with the correct form of verb:\nHe ___ many of his friends to powerful positions within the government.",
+ opts:["elevated","elevate","have been elevating","elevating"], ans:0},
+
+{id:4,  cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
+ q:"Fill in the blank with the correct option:\nMy uncle bequeathed his property ___ me.",
+ opts:["to","in","for","with"], ans:0},
+
+{id:5,  cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
+ q:"Identify the meaning of the underlined word:\nEven in the face of crisis, I appreciate her restrained behaviour.",
+ opts:["redundant","proactive","laborious","controlled"], ans:3},
+
+{id:6,  cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Medium",
+ q:"Change the sentence from Active to Passive voice:\nI remember my sister taking me to the museum.",
+ opts:["I remember I was taken to the museum by my sister.","I remember being taken to the museum by my sister.","I remember myself being taken to the museum by my sister.","I remember taken to the museum by my sister."], ans:1},
+
+{id:7,  cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Medium",
+ q:"Sunny ___ sleeping when the house ___ burgled.",
+ opts:["Was, had been","Had been, was","Has been, was being","Was, has been"], ans:1},
+
+{id:8,  cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Medium",
+ q:"Select the closest analogy:\nActor : Theatre",
+ opts:["Author : book","Engineer : bridge","Professor : university","Scientist : discovery"], ans:2},
+
+{id:9,  cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
+ q:"Choose the sentence with the correct punctuation:",
+ opts:["This book is Mary's favourite book.","this book is Marys' favourite book.","This book, is mary's favourite book","This book is Mary's, favourite book."], ans:0},
+
+{id:10, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Medium",
+ q:"Choose the correct option to fill the blank:\n___ before the team arrives.",
+ opts:["We will have secured the stadium","We would have been securing the stadium","We would have secured the stadium","We will have been securing the stadium"], ans:0},
+
+{id:11, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
+ q:"Choose the correct pronoun for the underlined word:\nThey must have a valid visa for they to travel to the United States of America.",
+ opts:["Everyone","Them","Everybody","Each"], ans:1},
+
+{id:12, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
+ q:"Use a prefix to form the antonym of the verb MATCH.",
+ opts:["PRE","UN","MIS","DIS"], ans:2},
+
+{id:13, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
+ q:"Laura is usually ___ than her sister Lycee.",
+ opts:["Much cheerful","Most cheerful","More cheerful","Cheerful"], ans:2},
+
+{id:14, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
+ q:"What does the abbreviation AKA stand for?",
+ opts:["Always Keep Asking","Also Known As","All Known Aspects","All known Adds"], ans:1},
+
+{id:15, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Medium",
+ q:"Fill in the blank:\nIt ___ the whole of last week.",
+ opts:["Has been snowing","Had snowed","Had been snowing","Has snowed"], ans:2},
+
+{id:16, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Hard",
+ q:"Rearrange the jumbled sentence:\nA) Non-violence is not quality to be evolved  B) Or expressed to order.  C) Upon intense individual effort.  D) It is an inward growth depending for sustenance",
+ opts:["ABCD","ACBD","ABDC","CDBA"], ans:2},
+
+{id:17, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
+ q:"Identify the meaning of the underlined word:\nThe house is cosy enough.",
+ opts:["Big","Comfortable","Beautiful","Neat"], ans:1},
+
+{id:18, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
+ q:"Identify the correct spelling.",
+ opts:["Tomorrow","Tommorrow","Tommorow","Toomorow"], ans:0},
+
+{id:19, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Easy",
+ q:"Which of the following is the antonym of 'Terminate'?",
+ opts:["Depart","Prevent","Commence","Hasten"], ans:2},
+
+{id:20, cat:"Verbal Ability",  src:"Reliance Foundation", diff:"Medium",
+ q:"Read the dialogue and choose the most appropriate option:\nSmitha: Do you want me to drop you at your office today?\nNavin: ___\nSmitha: It's a pleasure.",
+ opts:["Don't worry, I'll manage.","I'm not going to office today.","It's raining heavily, How will you drive?","That'd be very helpful."], ans:3},
+
+// ══════════════════════════════════════════════════════════
+// RELIANCE FOUNDATION – ANALYTICAL ABILITY (20 Qs)
+// ══════════════════════════════════════════════════════════
+{id:21, cat:"Analytical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"If MANU is written as 1234, and VANI is written as 5236, what is the code for MANUVAN?",
+ opts:["1234523","1234567","1234532","1234524"], ans:0},
+
+{id:22, cat:"Analytical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"If MAGIC in a certain code is LBFJB, then SPICE in the same code will be ___.",
+ opts:["RQHDD","TQJBD","RQHBF","RHJBD"], ans:0},
+
+{id:23, cat:"Analytical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"Complete the series: 11, 12, 17, 18, 23, 24, ___",
+ opts:["30","35","14","None of these"], ans:0},
+
+{id:24, cat:"Analytical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"What is the next number in the series?\n1, 2, 4, 7, 11, 16, ___",
+ opts:["22","25","21","20"], ans:0},
+
+{id:25, cat:"Analytical Ability", src:"Reliance Foundation", diff:"Easy",
+ q:"Referring to a guy Dolly said, 'He is the son of my grandfather's only son.' How is that guy and Dolly related?",
+ opts:["Brother","Son","Cousin brother","Father"], ans:0},
+
+{id:26, cat:"Analytical Ability", src:"Reliance Foundation", diff:"Hard",
+ q:"Jagan says: 'This girl is my mother's grandson's wife.' How is Jagan related to the girl?",
+ opts:["Father","Husband","Father-in-law","Nephew"], ans:2},
+
+{id:27, cat:"Analytical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"A man was standing in his balcony facing South East. He turns 180° in the anti-clockwise direction and then 90° in the clockwise direction. Which direction is he facing now?",
+ opts:["North","South-west","West","North-east"], ans:3},
+
+{id:28, cat:"Analytical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"Nitin starts from his office and walks 4 km towards South. He then turns left and walks 6 km and then again turns left and walks 4 km. In which direction is he from the starting point?",
+ opts:["North","West","East","South"], ans:2},
+
+{id:29, cat:"Analytical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"Pick the odd one out: triangle, rectangle, circle, pentagon.",
+ opts:["Triangle","Circle","Octagon","Rectangle"], ans:1},
+
+{id:30, cat:"Analytical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"CAT : 9 :: ANIMAL : ?",
+ opts:["16","25","36","49"], ans:2},
+
+{id:31, cat:"Analytical Ability", src:"Reliance Foundation", diff:"Easy",
+ q:"What comes next?\n7, 14, 21, 28, ?",
+ opts:["35","42","56","49"], ans:0},
+
+{id:32, cat:"Analytical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"If WOMAN is written as 41590, and KIND is written as 2634, what is the code for MANKIND?",
+ opts:["5096234","5902634","5902364","5902643"], ans:1},
+
+{id:33, cat:"Analytical Ability", src:"Reliance Foundation", diff:"Hard",
+ q:"Shyam started from his house. He walked some distance in the North-East direction. He took a right turn and walked for some more distance. Again he took a right turn and started walking. Which direction is he facing now?",
+ opts:["North-East","South-East","South-West","North-West"], ans:2},
+
+{id:34, cat:"Analytical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"Pointing to a lady Jeevan told 'Her mother is the only sister of my father's wife'. How is that lady related to Jeevan?",
+ opts:["Sister","Cousin","Aunt","Niece"], ans:1},
+
+// ══════════════════════════════════════════════════════════
+// RELIANCE FOUNDATION – NUMERICAL ABILITY (20 Qs)
+// ══════════════════════════════════════════════════════════
+{id:35, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Hard",
+ q:"Average cost of 5 apples and 4 mangoes is Rs.36. The average cost of 7 apples and 8 mangoes is Rs.48. Find the total cost of 24 apples and 24 mangoes.",
+ opts:["Rs.1044","Rs.2088","Rs.720","Rs.324"], ans:1},
+
+{id:36, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"A courtyard is 15 metres long and 10 metres wide. If it is paved by bricks of length 20 cm and width 10 cm, then what is the number of bricks required?",
+ opts:["4500","6000","7500","9000"], ans:2},
+
+{id:37, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Hard",
+ q:"In a class the average marks obtained by a boy is 76, and by a girl is 80. The class average is 77.75. Find the total number of students if there are 42 girls.",
+ opts:["100","93","96","104"], ans:2},
+
+{id:38, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Easy",
+ q:"There are three numbers in the ratio 1:2:3. The difference between the greatest and the least is 8. Which is the greatest?",
+ opts:["8","16","12","18"], ans:2},
+
+{id:39, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"A train travels from X to Y at 20 km/hr and returns at 30 km/hr. The average speed for the whole journey was:",
+ opts:["25 km/hr","24 km/hr","35 km/hr","40 km/hr"], ans:1},
+
+{id:40, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"If the sides of a square of side 10 units are increased by 50%, by what percentage does the area increase?",
+ opts:["100%","50%","125%","250%"], ans:2},
+
+{id:41, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"If x:y = 2:3 and z:y = 7:6, then what is the value of x:z?",
+ opts:["7:9","4:7","7:4","9:7"], ans:1},
+
+{id:42, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"The population of a village is 1500. If the rate of increase is 10%, what will be the population after two years?",
+ opts:["1600","1815","1800","1915"], ans:1},
+
+{id:43, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Hard",
+ q:"If the ratio of interest earned is 2:3:5, at 7%, then the principal amounts are:",
+ opts:["Rs.2000, Rs.3000, Rs.5000","Rs.14000, Rs.21000, Rs.35000","Rs.1500, Rs.3000, Rs.6000","Data insufficient"], ans:3},
+
+{id:44, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Easy",
+ q:"Walking at 5 km/hr, a person covers a distance in 4 hours. How much time will he take if he cycles at twice the speed?",
+ opts:["1 hour","2 hours","3 hours","4 hours"], ans:1},
+
+{id:45, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Hard",
+ q:"A gun and a target are 500 m apart. You stand equidistant from both, not in the line of fire. You hear the target being hit 4 seconds after the gun fires. Find the speed of the bullet.",
+ opts:["125 m/s","62.5 m/s","250 m/s","None of these"], ans:3},
+
+{id:46, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"If 12 men take 15 days to do a piece of work, how many days will 6 men take?",
+ opts:["7.5","15","30","45"], ans:2},
+
+{id:47, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Easy",
+ q:"Ten men can paint a room in 3 hours. How many hours would 5 men take at the same speed?",
+ opts:["6 hours","1.5 hours","10 hours","4 hours"], ans:0},
+
+{id:48, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"A man spends Rs.7000 and saves 12.5% of his income each month. What is his monthly income?",
+ opts:["7400","7700","8000","8300"], ans:2},
+
+{id:49, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"In an examination, 62% passed. If 342 people failed, what is the total number who wrote the exam?",
+ opts:["1800","900","770","1200"], ans:1},
+
+{id:50, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Hard",
+ q:"Mihir's salary increases by 12% once every four months. If his salary at the start of the year was Rs.8500, what would it be at year end?",
+ opts:["Rs.9520","Rs.10662","Rs.11941","None of the options"], ans:2},
+
+{id:51, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Hard",
+ q:"A man buys 20 items every quarter and his purchase increases by 12 in every following quarter. What is the total percentage increase in items bought over the previous year?",
+ opts:["1","1.2","1.7","None of the options"], ans:3},
+
+{id:52, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Hard",
+ q:"A die is thrown. E = 'multiple of 3', F = 'even number'. Then E and F are:",
+ opts:["Independent","Dependent","Either independent or dependent","None of these"], ans:0},
+
+{id:53, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Medium",
+ q:"A bag contains 9 discs: 4 red, 3 blue, 2 yellow. A disc is drawn at random. The probability it will be red or blue is:",
+ opts:["3/8","8/9","7/9","4/9"], ans:2},
+
+{id:54, cat:"Numerical Ability", src:"Reliance Foundation", diff:"Hard",
+ q:"A room is 10 ft long, 8 ft wide, 10 ft high. On one wall there is a painting of 5×2 ft not to be painted. Cost of painting 4 walls at Rs.20/sq ft is:",
+ opts:["Rs.7000","Rs.15800","Rs.16000","Rs.12600"], ans:0},
+
+// ══════════════════════════════════════════════════════════
+// INFOSYS APTITUDE TEST I – Math & Critical Thinking
+// ══════════════════════════════════════════════════════════
+{id:55, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"If WAIT + ALL = GIFTS; then what is the value of G+I+F+T? (If A=6 & S=5)",
+ opts:["11","12","15","24"], ans:2},
+
+{id:56, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"Abdul starts from Ahmadabad towards Bangalore. He will cover only 75% of the distance in scheduled time so doubles speed immediately, reaching exactly on time. Find the time after which he changed speed (he would have been late by 3 hours).",
+ opts:["3 h","4 h","5 h","6 h"], ans:0},
+
+{id:57, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"A code word consists of two English alphabets followed by two distinct numbers between 1 and 9. How many such code words are there?",
+ opts:["615800","46800","719500","410800"], ans:1},
+
+{id:58, cat:"Infosys", src:"Infosys", diff:"Medium",
+ q:"Rs.58 is divided among 150 children such that each girl gets 25p and each boy gets 50p. How many girls are there?",
+ opts:["52","54","68","62"], ans:2},
+
+{id:59, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"In an exam of 200 questions (1 pt correct, -1/4 wrong, -1/2 unanswered), a student attempts 160 and scores 100. How many did he answer correctly?",
+ opts:["132","126","139","128"], ans:3},
+
+{id:60, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"Two bus services A and B at a bus stand. A runs every 10 min (6:10 am–2 pm). B starts at 2:20 pm every 20 min. Find probability of getting bus B between 2:20–2:50 pm if A is late by 1 hour.",
+ opts:["1/2","1/3","1/4","1/5"], ans:0},
+
+{id:61, cat:"Infosys", src:"Infosys", diff:"Medium",
+ q:"Pipe A fills a tank in 10 hours; pipe B empties it in 15 hours. How long to completely fill a half-empty tank?",
+ opts:["30 hours","15 hours","20 hours","33.33 hours"], ans:0},
+
+{id:62, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"A man buys two cycles for Rs.900 total. Selling one for 4/5 of cost and other for 5/4 of cost gives Rs.90 profit. Find the cost of the lower-priced cycle.",
+ opts:["Rs.360","Rs.250","Rs.300","Rs.420"], ans:0},
+
+{id:63, cat:"Infosys", src:"Infosys", diff:"Medium",
+ q:"Water tax is increased by 20% but consumption decreases by 20%. The change in expenditure is:",
+ opts:["4% decrease","4% increase","8% decrease","8% increase"], ans:0},
+
+{id:64, cat:"Infosys", src:"Infosys", diff:"Medium",
+ q:"A cube painted yellow on all faces is cut into 27 equal small cubes. How many small cubes are painted on exactly one face?",
+ opts:["1","6","8","12"], ans:1},
+
+// ══════════════════════════════════════════════════════════
+// INFOSYS APTITUDE TEST II – Math
+// ══════════════════════════════════════════════════════════
+{id:65, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"If HOW + MUCH = POWER, then what is the value of P+O+W+E+R = ?",
+ opts:["12","14","17","20"], ans:2},
+
+{id:66, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"A train at 48 km/hr completely crosses another train (half its length) going opposite at 42 km/hr in 12 seconds. It also passes a platform in 45 seconds. The length of the platform is:",
+ opts:["560 m","400 m","600 m","450 m"], ans:1},
+
+{id:67, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"A can solve 90% of problems; B can solve 70%. What is the probability that at least one of them solves a randomly selected problem?",
+ opts:["3/100","97/100","83/100","17/100"], ans:1},
+
+{id:68, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"How many odd numbers less than 1000 can be formed using digits 0, 2, 5, 7? (Repetition allowed)",
+ opts:["52","32","22","42"], ans:3},
+
+{id:69, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"Find the time between 5 and 6 o'clock when the two hands of a clock are 6 minutes spaces apart.",
+ opts:["3 2/11 min past 5","6 6/11 min past 5","20 8/11 min past 5","4 2/11 min past 5"], ans:0},
+
+// ══════════════════════════════════════════════════════════
+// INFOSYS APTITUDE TEST III – Roman Numerals
+// ══════════════════════════════════════════════════════════
+{id:70, cat:"Infosys", src:"Infosys", diff:"Medium",
+ q:"The value of the numerical MDCCLXXXVII is:",
+ opts:["1687","1787","1887","1987"], ans:1},
+
+{id:71, cat:"Infosys", src:"Infosys", diff:"Medium",
+ q:"The value of the numerical MCMXCIX is:",
+ opts:["1999","1899","1989","1889"], ans:0},
+
+{id:72, cat:"Infosys", src:"Infosys", diff:"Medium",
+ q:"Which of the following can represent the numerical for 1995?\n1. MCMLXXV  2. MCMXCV  3. MVD  4. MVM",
+ opts:["Only 1 and 2","Only 3 and 4","Only 2 and 4","Only 4"], ans:2},
+
+{id:73, cat:"Infosys", src:"Infosys", diff:"Medium",
+ q:"What is the sum of the values of the numerals MVD and MVM?",
+ opts:["3420","4490","2490","1490"], ans:1},
+
+{id:74, cat:"Infosys", src:"Infosys", diff:"Medium",
+ q:"Which of the following can represent the numerical for 2006?\n1. MMVI  2. MDDVI  3. MCDCDCCVI",
+ opts:["Only 1","Only 2","1 and 2 only","All the above"], ans:0},
+
+// ══════════════════════════════════════════════════════════
+// INFOSYS APTITUDE TEST IV – Math
+// ══════════════════════════════════════════════════════════
+{id:75, cat:"Infosys", src:"Infosys", diff:"Medium",
+ q:"Ravi beats Raja by 10 seconds and beats Ramesh by 16 seconds. If Ramesh finished in 196 seconds, Raja finished in ___.",
+ opts:["199","190","206","212"], ans:1},
+
+{id:76, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"Two tanks of equal volume each have one tap. One fills at 2/7 the rate of the other. If total water after 1 hour is 360 litres, how long does the slower-rate tank take to fill 360 litres?",
+ opts:["6 hours","9 hours","4.5 hours","7.5 hours"], ans:1},
+
+{id:77, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"A circle is inscribed in a square. If area of the circle is 616 cm², what is the area of the square NOT occupied by the circle? (π = 22/7)",
+ opts:["148 cm²","168 cm²","174 cm²","192 cm²"], ans:1},
+
+{id:78, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"There are five temples with a pond that doubles items. Ram places equal flowers at each temple, left with none at the end. He started with fewer than 50 flowers. How many flowers at each temple?",
+ opts:["16","24","32","64"], ans:2},
+
+// ══════════════════════════════════════════════════════════
+// INFOSYS APTITUDE TEST V – Math & Coding
+// ══════════════════════════════════════════════════════════
+{id:79, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"A machine P prints 1 lakh books in 8 hrs, Q in 10 hrs, R in 12 hrs. All start at 9am; P is closed at 11am; Q and R complete the work. Approximately when is work finished?",
+ opts:["11:00 am","12:00 pm","1:00 pm","2:00 pm"], ans:2},
+
+{id:80, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"Two containers have water:milk in ratios 5:4 and 7:9. In what ratio should they be mixed so the mixture ratio is 6:6?",
+ opts:["6:5","7:5","8:9","9:8"], ans:1},
+
+{id:81, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"What is the difference in compound interest on Rs.3000 for 2 years at 5% p.a. when compounded yearly vs half-yearly?",
+ opts:["Rs.3.93","Rs.30","Rs.15.3","Rs.41.28"], ans:0},
+
+{id:82, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"If the word TRADE is coded as XVEHI, then how should PUBLIC be coded?",
+ opts:["TYFMPG","TYFPMG","SXLLOP","SXEOLF"], ans:0},
+
+{id:83, cat:"Infosys", src:"Infosys", diff:"Medium",
+ q:"In a certain code PORTUGESE is written as ESEGUTROP. MALAYALAM will be written as:",
+ opts:["MALAYALAM (reversed)","MALAYALAM","MALAYALM","MALAYLAM"], ans:0},
+
+{id:84, cat:"Infosys", src:"Infosys", diff:"Medium",
+ q:"BXJ, ETL, HPN, KLP, ?",
+ opts:["PHR","NIR","NHR","MHR"], ans:2},
+
+{id:85, cat:"Infosys", src:"Infosys", diff:"Medium",
+ q:"37, 47, 58, ?, 79, 95",
+ opts:["69","68","67","71"], ans:0},
+
+{id:86, cat:"Infosys", src:"Infosys", diff:"Medium",
+ q:"99 : 79 :: 24 : ?",
+ opts:["1","13","9","9"], ans:2},
+
+// ══════════════════════════════════════════════════════════
+// INFOSYS – Data Sufficiency (Aptitude IV)
+// ══════════════════════════════════════════════════════════
+{id:87, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"How many parking spaces are occupied?\nA: There are 100 unoccupied spaces.\nB: If 10 more were occupied, 15% of spaces would be unoccupied.\n(a=A alone, b=B alone, c=both, d=neither, e=either)",
+ opts:["a","b","c","d"], ans:2},
+
+{id:88, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"Dinesh bought kiwis and jackfruit for Rs.150. Find number of kiwis.\nA: Interchanging quantities makes total Rs.140.\nB: Cost: kiwi Rs.17, jackfruit Rs.12.\n(a=A alone, b=B alone, c=both, d=either)",
+ opts:["a","b","c","d"], ans:2},
+
+{id:89, cat:"Infosys", src:"Infosys", diff:"Hard",
+ q:"Is Y divisible by 26?\nA: Y÷13 leaves remainder 6.\nB: Y÷39 leaves remainder 26.\n(a=A alone, b=B alone, c=both, d=neither)",
+ opts:["a","b","c","d"], ans:3},
+
+{id:90, cat:"Infosys", src:"Infosys", diff:"Medium",
+ q:"Is the greatest of three consecutive integers odd?\nA: Product of the three is 0.\nB: Sum of the three is 0.\n(a=A alone, b=B alone, c=both, d=either)",
+ opts:["a","b","c","d"], ans:1},
+    // ══════════════════════════════════════════════════════════
+// CODING PROBLEMS
+// ADD BELOW YOUR LAST QUESTION OBJECT
+// ══════════════════════════════════════════════════════════
+
+{id:91, cat:"Coding", src:"Coding Round", diff:"Easy",
+ q:"What is the output of: console.log(2 + '2') ?",
+ opts:["4","22","NaN","undefined"], ans:1},
+
+{id:92, cat:"Coding", src:"Coding Round", diff:"Easy",
+ q:"Which keyword is used to declare a constant in JavaScript?",
+ opts:["var","let","const","constant"], ans:2},
+
+{id:93, cat:"Coding", src:"Coding Round", diff:"Medium",
+ q:"Which data structure works on FIFO principle?",
+ opts:["Stack","Queue","Tree","Graph"], ans:1},
+
+{id:94, cat:"Coding", src:"Coding Round", diff:"Medium",
+ q:"What is the time complexity of Binary Search?",
+ opts:["O(n)","O(log n)","O(n²)","O(1)"], ans:1},
+
+{id:95, cat:"Coding", src:"Coding Round", diff:"Easy",
+ q:"Which HTML tag is used to create a hyperlink?",
+ opts:["link","a","href","hyper"], ans:1},
+
+{id:96, cat:"Coding", src:"Coding Round", diff:"Medium",
+ q:"Which method converts JSON string into JavaScript object?",
+ opts:["JSON.parse()","JSON.stringify()","JSON.object()","JSON.convert()"], ans:0},
+
+{id:97, cat:"Coding", src:"Coding Round", diff:"Hard",
+ q:"Which sorting algorithm has the best average case complexity?",
+ opts:["Bubble Sort","Selection Sort","Merge Sort","Insertion Sort"], ans:2},
+
+{id:98, cat:"Coding", src:"Coding Round", diff:"Easy",
+ q:"Which symbol is used for comments in JavaScript single line?",
+ opts:["<!-- -->","//","##","**"], ans:1},
+
+{id:99, cat:"Coding", src:"Coding Round", diff:"Medium",
+ q:"Which SQL command is used to remove a table completely?",
+ opts:["DELETE","REMOVE","DROP","CLEAR"], ans:2},
+
+{id:100, cat:"Coding", src:"Coding Round", diff:"Hard",
+ q:"Which of the following is NOT a programming language?",
+ opts:["Python","Java","HTML","C++"], ans:2},
+
+];
+
+// ─── STATE ────────────────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════
+// ADD THESE VARIABLES BELOW:
+// let activeFilter = 'all';
+// let currentQ = null;
+// ══════════════════════════════════════════════════════════
+
+let filteredQuestions = [];
+let currentIndex = 0;
+
+function setFilter(f, btn) {
+    activeFilter = f;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    render();
+}
+
+function getFiltered() {
+    const q = document.getElementById('searchBox').value.toLowerCase();
+    return ALL.filter(item => {
+        const matchCat = activeFilter === 'all' ||
+            item.cat === activeFilter ||
+            item.src === activeFilter ||
+            item.diff === activeFilter;
+        const matchSearch = !q || item.q.toLowerCase().includes(q) || item.cat.toLowerCase().includes(q);
+        return matchCat && matchSearch;
+    });
+}
+
+function render() {
+    const data = getFiltered();
+    const grid = document.getElementById('grid');
+    const easy = data.filter(d=>d.diff==='Easy').length;
+    const med  = data.filter(d=>d.diff==='Medium').length;
+    const hard = data.filter(d=>d.diff==='Hard').length;
+    document.getElementById('easyCount').textContent = easy + ' Easy';
+    document.getElementById('medCount').textContent  = med  + ' Medium';
+    document.getElementById('hardCount').textContent = hard + ' Hard';
+    document.getElementById('totalCount').textContent = data.length + ' Total';
+
+    if (!data.length) {
+        grid.innerHTML = `<div class="empty"><span>🔍</span>No questions match your filter.</div>`;
+        return;
+    }
+
+    grid.innerHTML = data.map((item,i) => `
+        <div class="card ${item.diff.toLowerCase()}" onclick="openModal(${item.id})">
+            <div class="card-header">
+                <span class="card-num">#${String(i+1).padStart(3,'0')}</span>
+                <span class="badge ${item.diff.toLowerCase()}">${item.diff}</span>
+            </div>
+            <div class="card-title">${item.q.split('\n')[0].slice(0,110)}${item.q.length>110?'…':''}</div>
+            <div class="card-meta">
+                <span class="tag">${item.cat}</span>
+                <span class="tag">${item.src}</span>
+            </div>
+        </div>`).join('');
+}
+
+// ══════════════════════════════════════════════════════════
+// ADD THIS NEW FUNCTION
+// ══════════════════════════════════════════════════════════
+
+function loadQuestion(index){
+
+    const item = filteredQuestions[index];
+
+    if (!item) return;
+
+    currentQ = { item, answered: false };
+
+    document.getElementById('mTitle').textContent = item.q;
+
+    document.getElementById('mBadge').className  =
+        `badge ${item.diff.toLowerCase()}`;
+
+    document.getElementById('mBadge').textContent = item.diff;
+
+    document.getElementById('mTag').textContent  = item.cat;
+
+    document.getElementById('mNum').textContent  =
+        `Q${item.id} · ${item.src}`;
+
+    const letters = ['A','B','C','D'];
+
+    document.getElementById('mOptions').innerHTML =
+        item.opts.map((o,i)=>`
+        <div class="option" id="opt${i}" onclick="selectOpt(${i})">
+            <span class="opt-letter">${letters[i]}</span>
+            <span>${o}</span>
+        </div>
+    `).join('');
+
+    const rm = document.getElementById('resultMsg');
+
+    rm.style.display='none';
+
+    rm.className='result-msg';
+
+    document.getElementById('prevBtn').disabled =
+        currentIndex === 0;
+
+    document.getElementById('nextBtn').disabled =
+        currentIndex === filteredQuestions.length - 1;
+}
+
+
+function selectOpt(idx) {
+    if (currentQ?.answered) return;
+    currentQ.answered = true;
+    const item = currentQ.item;
+    const correct = item.ans;
+    const rm = document.getElementById('resultMsg');
+
+    document.querySelectorAll('.option').forEach((el,i)=>{
+        if (i === correct) el.classList.add('selected','correct');
+        else if (i === idx && i !== correct) el.classList.add('selected','wrong');
+    });
+
+    if (idx === correct) {
+        rm.textContent = '✓ Correct!';
+        rm.className = 'result-msg correct';
+    } else {
+        rm.textContent = `✗ Incorrect. Correct answer: ${['A','B','C','D'][correct]}) ${item.opts[correct]}`;
+        rm.className = 'result-msg wrong';
+    }
+    rm.style.display='block';
+}
+
+function closeModal(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModalDirect();
+}
+function closeModalDirect() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow='';
+    currentQ = null;
+}// ══════════════════════════════════════════════════════════
+// ADD NEXT QUESTION FUNCTION
+// ══════════════════════════════════════════════════════════
+
+function nextQuestion(){
+
+    if(currentIndex < filteredQuestions.length - 1){
+
+        currentIndex++;
+
+        loadQuestion(currentIndex);
     }
 }
-loadPractice();
+    // ══════════════════════════════════════════════════════════
+// ADD PREVIOUS QUESTION FUNCTION
+// ══════════════════════════════════════════════════════════
 
+function prevQuestion(){
+
+    if(currentIndex > 0){
+
+        currentIndex--;
+
+        loadQuestion(currentIndex);
+    }
+}
+
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeModalDirect(); });
+
+render();
 </script>
 </body>
 </html>
