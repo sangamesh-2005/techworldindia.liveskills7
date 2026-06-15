@@ -39,11 +39,6 @@ app.get("/api/about", (req, res) => {
 app.get("/api/health", (req, res) => {
   res.json({ status: "OK", message: "Server is running" });
 });
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`✅  Server running at http://localhost:${PORT}`);
-});
 //-------SB----------//
 db.serialize(() => {
   db.run(`
@@ -101,9 +96,28 @@ app.get("/api/scoreboard", (req, res) => {
     }
   );
 });
+//--------DB---------//
+app.get("/api/dashboard", (req, res) => {
 
-app.listen(5000, () => {
+    const userId = req.query.user_id;
 
-  console.log("Server running on port 5000");
+    res.json({
+        totalProblems: 120,
+
+        upcomingHackathons: 8,
+
+        latestScore: {
+            score: 18,
+            total: 20
+        },
+
+        leaderboardRank: 5
+    });
 
 });
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`✅  Server running at http://localhost:${PORT}`);
+});
+
