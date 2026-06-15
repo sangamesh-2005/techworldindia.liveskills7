@@ -44,3 +44,66 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`✅  Server running at http://localhost:${PORT}`);
 });
+//-------SB----------//
+db.serialize(() => {
+  db.run(`
+    CREATE TABLE IF NOT EXISTS scores (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT,
+      score INTEGER,
+      total INTEGER,
+      percentage REAL,
+      submitted_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+  `);
+});
+
+app.post("/api/score", (req, res) => {
+
+  const { name, score, total } = req.body;
+
+  const percentage = ((score / total) * 100).toFixed(2);
+
+  db.run(
+    `INSERT INTO scores(name,score,total,percentage)
+     VALUES(?,?,?,?)`,
+    [name, score, total, percentage],
+    function(err){
+
+      if(err){
+
+        return res.status(500).json(err);
+
+      }
+
+      res.json({success:true});
+    }
+  );
+});
+
+app.get("/api/scoreboard", (req, res) => {
+
+  db.all(
+    `SELECT * FROM scores
+     ORDER BY percentage DESC,
+     score DESC`,
+    [],
+    (err, rows) => {
+
+      if(err){
+
+        return res.status(500).json(err);
+
+      }
+
+      res.json(rows);
+
+    }
+  );
+});
+
+app.listen(5000, () => {
+
+  console.log("Server running on port 5000");
+
+});
