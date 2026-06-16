@@ -22,7 +22,6 @@
     <a href="test.html">📝 Take Test</a>
     <a href="dashboard.html">📊 Dashboard</a>
 </nav>
-
 <div class="container mt-5">
     <h2 class="mb-1">🏆 <span class="gradient-text">Leaderboard</span></h2>
     <p class="text-secondary mb-4">Top scores across all test attempts</p>
@@ -41,36 +40,64 @@
         <tbody id="scoreBody"></tbody>
     </table>
 </div>
-
 <script>
 const API = "http://localhost:5000/api";
+
+// Set to true once your real backend is running at API above.
+const USE_BACKEND = false;
+
+const MOCK_SCORES = [
+    { name: "Aditi Sharma", score: 48, total: 50, percentage: 96, submitted_at: "2026-06-10T10:30:00Z" },
+    { name: "Rohan Verma", score: 45, total: 50, percentage: 90, submitted_at: "2026-06-09T14:15:00Z" },
+    { guest_name: "Guest_2291", score: 42, total: 50, percentage: 84, submitted_at: "2026-06-08T09:00:00Z" },
+    { name: "Priya Nair", score: 39, total: 50, percentage: 78, submitted_at: "2026-06-07T18:45:00Z" },
+    { name: "Karan Mehta", score: 35, total: 50, percentage: 70, submitted_at: "2026-06-06T11:20:00Z" }
+];
+
+function renderScores(data) {
+    const tbody = document.getElementById("scoreBody");
+    document.getElementById("loading").classList.add("d-none");
+    document.getElementById("scoreTable").classList.remove("d-none");
+    tbody.innerHTML = "";
+
+    if (!data || data.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" class="text-center text-secondary">No scores yet. Be the first!</td></tr>`;
+        return;
+    }
+
+    const medals = ["🥇", "🥈", "🥉"];
+    let rows = "";
+    data.forEach((item, i) => {
+        const date = new Date(item.submitted_at).toLocaleDateString("en-IN");
+        rows += `
+            <tr>
+                <td>${medals[i] || (i + 1)}</td>
+                <td>${item.name || item.guest_name || "Guest"}</td>
+                <td class="text-success fw-bold">${item.score}</td>
+                <td>${item.total}</td>
+                <td><span class="badge bg-primary badge-rank">${item.percentage}%</span></td>
+                <td class="text-secondary">${date}</td>
+            </tr>`;
+    });
+    tbody.innerHTML = rows;
+}
+
 async function loadScores() {
+    if (!USE_BACKEND) {
+        renderScores(MOCK_SCORES);
+        return;
+    }
     try {
         const res = await fetch(`${API}/scoreboard`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
-        const tbody = document.getElementById("scoreBody");
-        document.getElementById("loading").classList.add("d-none");
-        document.getElementById("scoreTable").classList.remove("d-none");
-        data.forEach((item, i) => {
-            const medals = ["🥇","🥈","🥉"];
-            const date = new Date(item.submitted_at).toLocaleDateString("en-IN");
-            tbody.innerHTML += `
-                <tr>
-                    <td>${medals[i] || (i+1)}</td>
-                    <td>${item.name || item.guest_name || "Guest"}</td>
-                    <td class="text-success fw-bold">${item.score}</td>
-                    <td>${item.total}</td>
-                    <td><span class="badge bg-primary badge-rank">${item.percentage}%</span></td>
-                    <td class="text-secondary">${date}</td>
-                </tr>`;
-        });
-        if (data.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="6" class="text-center text-secondary">No scores yet. Be the first!</td></tr>`;
-        }
+        renderScores(data);
     } catch (err) {
+        console.error("Scoreboard load failed:", err);
         document.getElementById("loading").textContent = "⚠️ Could not connect to server.";
     }
 }
+
 loadScores();
 </script>
 </body>
