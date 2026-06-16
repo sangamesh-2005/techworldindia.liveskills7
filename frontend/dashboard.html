@@ -8,17 +8,25 @@
     <style>
         body { background:#05080f; color:#fff; font-family:'Poppins',sans-serif; }
         nav a { color:#fff; text-decoration:none; margin:0 12px; }
-       .dash-number{
- background:linear-gradient(45deg,#00c6ff,#0072ff);
- -webkit-background-clip:text;
- -webkit-text-fill-color:transparent;
-}
-
-.gradient-text{
- background:linear-gradient(45deg,#00c6ff,#0072ff);
- -webkit-background-clip:text;
- -webkit-text-fill-color:transparent;
-}
+        .dash-card {
+            background:#0b0f19;
+            border:1px solid #1c2333;
+            border-radius:12px;
+            padding:24px;
+            text-align:center;
+        }
+        .dash-number{
+            font-size:2rem;
+            font-weight:600;
+            background:linear-gradient(45deg,#00c6ff,#0072ff);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
+        .gradient-text{
+            background:linear-gradient(45deg,#00c6ff,#0072ff);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
     </style>
 </head>
 <body>
@@ -29,7 +37,6 @@
     <span id="navUser" class="text-info ms-3"></span>
     <a href="login.html" id="logoutBtn" onclick="logout()" class="text-danger ms-3 d-none">Logout</a>
 </nav>
-
 <div class="container mt-5">
     <h2 class="mb-1">📊 <span class="gradient-text">Dashboard</span></h2>
     <p id="welcomeMsg" class="text-secondary mb-4">Loading your stats...</p>
@@ -48,10 +55,25 @@
         </div>
     </div>
 </div>
-
 <script>
 const API = "http://localhost:5000/api";
-const user = JSON.parse(localStorage.getItem("user") || "null");
+
+// Set to true once your real backend is running at API above.
+const USE_BACKEND = false;
+
+const MOCK_DATA = {
+    totalProblems: 128,
+    upcomingHackathons: 3,
+    latestScore: { score: 42, total: 50 },
+    leaderboardRank: 17
+};
+
+let user = null;
+try {
+    user = JSON.parse(localStorage.getItem("user") || "null");
+} catch (e) {
+    user = null;
+}
 
 if (user) {
     document.getElementById("navUser").textContent = "👋 " + user.name;
@@ -66,24 +88,37 @@ function logout() {
     window.location.href = "index.html";
 }
 
+function renderStats(data) {
+    document.getElementById("statProblems").textContent = data.totalProblems ?? "—";
+    document.getElementById("statHackathons").textContent = data.upcomingHackathons ?? "—";
+    if (data.latestScore) {
+        document.getElementById("statScore").textContent = `${data.latestScore.score}/${data.latestScore.total}`;
+    }
+    if (data.leaderboardRank) {
+        document.getElementById("statRank").textContent = `#${data.leaderboardRank}`;
+    }
+}
+
 async function loadDashboard() {
+    if (!USE_BACKEND) {
+        // No backend wired up yet — show mock data so the UI is testable.
+        renderStats(MOCK_DATA);
+        return;
+    }
     try {
         const url = user ? `${API}/dashboard?user_id=${user.id}` : `${API}/dashboard`;
         const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
-        document.getElementById("statProblems").textContent = data.totalProblems ?? "—";
-        document.getElementById("statHackathons").textContent = data.upcomingHackathons ?? "—";
-        if (data.latestScore) {
-            document.getElementById("statScore").textContent = `${data.latestScore.score}/${data.latestScore.total}`;
-            document.getElementById("statRank").textContent = `#${data.leaderboardRank}`;
-        }
+        renderStats(data);
     } catch (err) {
+        console.error("Dashboard load failed:", err);
         document.getElementById("welcomeMsg").textContent += " (Could not load stats — is the server running?)";
+        renderStats(MOCK_DATA); // fallback so cards aren't stuck on "—"
     }
 }
 
 loadDashboard();
-
 </script>
 </body>
 </html>
