@@ -35,7 +35,7 @@
     <a href="test.html">📝 Take Test</a>
     <a href="scoreboard.html">🏆 Scoreboard</a>
     <span id="navUser" class="text-info ms-3"></span>
-    <a href=#"login.html"# id="logoutBtn" onclick="logout()" class="text-danger ms-3 d-none">Logout</a>
+   
 </nav>
 <div class="container mt-5">
     <h2 class="mb-1">📊 <span class="gradient-text">Dashboard</span></h2>
@@ -80,7 +80,7 @@ if (user) {
     document.getElementById("logoutBtn").classList.remove("d-none");
     document.getElementById("welcomeMsg").textContent = `Welcome back, ${user.name}!`;
 } else {
-    document.getElementById("welcomeMsg").innerHTML = `<a href="login.html" class="text-info">Login</a> to see your personal stats.`;
+    document.getElementById("welcomeMsg")
 }
 
 function logout() {
